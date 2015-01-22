@@ -3,45 +3,7 @@
 <head>
   <title>Local Game Jam</title>
   <link href='http://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'>
-  <style>
-    html, body {
-      padding: 0px;
-      margin: 0px;
-      background-color: #222;
-      text-align: center;
-      font-family: 'Sigmar One', cursive;
-      font-size: 28px;
-      color: #9effdc;
-    }
-    #bright {
-      width: 100%;
-      height: 200px;
-      background-color: #303030;
-      z-index: -1;
-    }
-    .wrapper {
-      width: 800px;
-      background-color: transparent;
-      margin: auto;
-      margin-top: -110px;
-    }
-    #logo {
-      font-size: 90px;
-      letter-spacing: -5px;
-      line-height: 70px;
-      color: #00ffb4;
-    }
-    h1, h2, h3 { color: #00ffb4; margin-bottom: 0px; margin-top:20px; }
-    #logo .year {
-      font-size: 50px;
-      color: lime;
-    }
-    #about {
-      margin-top: 50px;
-    }
-    .timer { font-size: 100px; line-height: 90px; }
-    a { color: lime; font-size: 16px; }
-  </style>
+  <link href='css/style.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <div id="bright"></div>
@@ -50,9 +12,21 @@
     <div id="about">Two programmers. 48 hours. One game.</div>
     <h1>Time</h1>
     <div class="timer">48:00:00</div>
+
+    <h1>scrubs</h1>
+
+    <div class="center">
+      <div class="portrait" style="background-image:url('/img/mig.jpg');">
+        <img class="glasses" src="/img/glasses.png"></img>
+      </div>
+      <div class="portrait" style="background-image:url('/img/ick.jpg');">
+        <img class="glasses" src="/img/glasses.png"></img>
+      </div>
+    </div>
+
     <h1>Stream</h1>
-    <iframe width="640" height="480" src="//www.youtube.com/embed/7MniRndBkCU?autoplay=1" frameborder="0" allowfullscreen></iframe>
+    <iframe width="640" height="480" src="//www.youtube.com/embed/7MniRndBkCU?autoplay=1" frameborder="0" allowfullscreen>
   </div>
-  <div id="footer"><a href="#">Impressum</a></div>
+  <div id="footer"><a href="imp">Impressum</a></div>
 </body>
 </html>
