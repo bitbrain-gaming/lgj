@@ -6,9 +6,9 @@ public class Physics {
 
 	public static final float MIN_SPEED = 160f;
 
-	public static final float MAX_SPEED = 230f;
+	public static final float MAX_SPEED = 330f;
 
-	public static final float MAX_ACCEL = 25f;
+	public static final float MAX_ACCEL = 35f;
 
 	public void apply(GameObject gameObject, float delta) {
 

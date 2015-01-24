@@ -30,6 +30,7 @@ public class Renderer {
 			break;
 		case PROJECTILE:
 			sprite = projectileSprite;
+			sprite.setColor(new Color(1f, 0f, 0f, 1f));
 			break;
 		default:
 			break;
