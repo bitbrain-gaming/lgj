@@ -35,12 +35,13 @@ public abstract class AbstractScreen implements Screen {
 		batch = new SpriteBatch();
 		stage = new Stage(new FillViewport(800, 600), batch);
 		tweenManager = new TweenManager();
+		Gdx.input.setInputProcessor(stage);
 		onShow();
 	}
 
 	@Override
 	public final void render(float delta) {
-		Gdx.gl.glClearColor(0f, 0f, 0f, 1f);
+		Gdx.gl.glClearColor(0.1f, 0.1f, 0.1f, 1f);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
 		tweenManager.update(delta);
