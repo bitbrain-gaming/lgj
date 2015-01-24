@@ -27,7 +27,7 @@ public class CameraTrackingBehavior {
 
 		float distance = velocity.len();
 		velocity.nor();
-		if (distance <= 0.1f) {
+		if (distance <= 0.01f) {
 			focus();
 		} else {
 			double speed = (5.0) * distance;
