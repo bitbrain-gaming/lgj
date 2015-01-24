@@ -1,6 +1,8 @@
 package de.bitbrain.yolo.screens;
 
 
+import java.io.IOException;
+
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -14,8 +16,7 @@ import de.bitbrain.yolo.core.GameState;
 import de.bitbrain.yolo.core.GameStateCallback;
 import de.bitbrain.yolo.graphics.ParallaxMap;
 import de.bitbrain.yolo.net.YoloServer;
-
-import java.io.IOException;
+import de.bitbrain.yolo.ui.PlayerWidget;
 
 public class IngameScreen extends AbstractScreen {
 	
@@ -62,6 +63,8 @@ public class IngameScreen extends AbstractScreen {
 				return super.keyDown(event, keycode);
 			}
 		});
+		
+		stage.addActor(new PlayerWidget(gameHandler.getPlayer()));
 	}
 
 	@Override
