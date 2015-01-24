@@ -1,9 +1,11 @@
 package de.bitbrain.yolo.core;
 
+import com.badlogic.gdx.utils.Disposable;
+
 /**
  * @author ksidpen
  */
-public interface GameStateCallback {
+public interface GameStateCallback extends Disposable{
 
     /**
      * called when an object wants to move

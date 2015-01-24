@@ -47,8 +47,13 @@ public class YoloServer extends Listener implements Disposable, GameStateCallbac
 
     @Override
     public void dispose() {
-        server.removeListener(this);
-        server.close();
+        try {
+            server.stop();
+            server.dispose();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
 

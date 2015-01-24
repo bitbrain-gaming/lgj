@@ -39,7 +39,7 @@ public class YoloClient extends Listener implements Disposable, GameStateCallbac
         client.connect(KryoConfig.timeout, target, KryoConfig.TCPPort, KryoConfig.UDPPort);
         client.addListener(this);
 
-        client.sendTCP(new Events.Join());
+        //client.sendTCP(new Events.Join());
     }
 
     @Override
@@ -64,6 +64,7 @@ public class YoloClient extends Listener implements Disposable, GameStateCallbac
                 game.setScreen(new MenuScreen(game));
             }
         });
+        this.dispose();
     }
 
     @Override

@@ -41,7 +41,7 @@ public class IngameScreen extends AbstractScreen {
 
 	@Override
 	protected void onShow() {
-		
+
 		gameHandler = new GameHandler(gameState, camera, gameStateCallback);
 		backgroundMap = new ParallaxMap(Assets.TEX_SPACE, camera, 100f);
 		backgroundMap.setColor(new Color(0.2f, 0.3f, 0.4f, 1.0f));
@@ -55,6 +55,7 @@ public class IngameScreen extends AbstractScreen {
 			@Override
 			public boolean keyDown(InputEvent event, int keycode) {
 				if (keycode == Keys.ESCAPE) {
+					gameStateCallback.dispose();
 					game.setScreen(new MenuScreen(game));
 					return true;
 				}
@@ -75,5 +76,10 @@ public class IngameScreen extends AbstractScreen {
 		fogMap2.draw(batch);
 		fogMap1.draw(batch);
 		gameHandler.updateAndRender(delta, batch);
+	}
+
+	@Override
+	public void dispose() {
+		gameStateCallback.dispose();
 	}
 }

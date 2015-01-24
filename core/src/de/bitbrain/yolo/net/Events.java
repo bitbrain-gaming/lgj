@@ -7,7 +7,7 @@ import de.bitbrain.yolo.core.GameObject;
  */
 public class Events {
 
-    public static final class Spawn{
+    public static class Spawn{
         public final GameObject entity;
 
         public Spawn(GameObject entity) {
@@ -22,7 +22,7 @@ public class Events {
         }
     }
 
-    public static final class Move{
+    public static class Move{
         public final GameObject entity;
 
         public Move(GameObject entity) {
@@ -37,7 +37,7 @@ public class Events {
         }
     }
 
-    public static final class Collision{
+    public static class Collision{
 
         public final GameObject entity1;
         public final GameObject entity2;
@@ -55,11 +55,11 @@ public class Events {
                     '}';
         }
     }
-    public static final class Join {
+    public static class Join {
 
     }
 
-    public static final class Outcome{
+    public static class Outcome{
         public enum TYPE {
             WIN, LOOSE, DRAW
         }
