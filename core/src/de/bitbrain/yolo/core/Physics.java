@@ -6,7 +6,7 @@ public class Physics {
 
 	public static final float MIN_SPEED = 20f;
 
-	public static final float MAX_SPEED = 130f;
+	public static final float MAX_SPEED = 230f;
 
 	public static final float MAX_ACCEL = 25f;
 

@@ -45,6 +45,7 @@ public class IngameScreen extends AbstractScreen {
 		gameHandler = new GameHandler(gameState, camera, gameStateCallback);
 		backgroundMap = new ParallaxMap(Assets.TEX_SPACE, camera, 100f);
 		backgroundMap.setColor(new Color(0.2f, 0.3f, 0.4f, 1.0f));
+		backgroundMap.scale(3.2f);
 		fogMap1 = new ParallaxMap(Assets.TEX_FOG, camera, 0.4f);
 		fogMap1.scale(5.2f);
 		fogMap2 = new ParallaxMap(Assets.TEX_FOG, camera, 2f);
