@@ -27,6 +27,8 @@ public class IngameScreen extends AbstractScreen {
 	private ParallaxMap backgroundMap, fogMap1, fogMap2;
 
 	private final GameStateCallback gameStateCallback;
+	
+	private boolean init = false;
 
 	IngameScreen(YoloGame game) throws IOException {
 		super(game);
@@ -65,13 +67,14 @@ public class IngameScreen extends AbstractScreen {
 		});
 		
 		stage.addActor(new PlayerWidget(gameState.getPlayer()));
-		gameHandler.respawn(gameState.getPlayer());
 	}
 
 	@Override
 	protected void onResize(int width, int height) {
-		// TODO Auto-generated method stub
-		
+		if (!init) {
+			gameHandler.respawn(gameState.getPlayer());
+			init = false;
+		}
 	}
 
 	@Override
