@@ -78,7 +78,7 @@ public class GameHandler {
 		playerShip = new GameObject();
 		playerShip.setSize(24f, 24f);
 		playerShip.setAngle(0f);
-		playerShip.setType(GameObjectType.PLAYER_1);
+		playerShip.setType(GameObjectType.PLAYER);
 		applyBehavior(playerShip, new BehaviourWrapper(new PlayerBehavior(
 				camera, this, gameStateCallback)) {
 			@Override
