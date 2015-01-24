@@ -35,6 +35,7 @@ public class GameHandler {
 		this.renderer = new Renderer();
 		initGame();
 		cameraBehavior = new CameraTrackingBehavior(player, camera);
+		cameraBehavior.focus();
 	}
 
 	public void updateAndRender(float delta, Batch batch) {
