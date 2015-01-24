@@ -1,18 +1,13 @@
 package de.bitbrain.yolo.core;
 
-import java.util.Collection;
+import java.util.Map;
 
 public interface GameState {
 
-	Collection<GameObject> getGameObjects();
-	
-	Collection<Player> getPlayers();
-	
+	Map<Integer, GameObject> getGameObjects();
+
 	void addGameObject(GameObject gameObject);
-	
+
 	void removeGameObject(GameObject gameObject);
-	
-	void addPlayer(Player player);
-	
-	void removePlayer(Player player);
+
 }

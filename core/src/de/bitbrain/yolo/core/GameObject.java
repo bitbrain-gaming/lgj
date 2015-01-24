@@ -1,14 +1,30 @@
 package de.bitbrain.yolo.core;
 
+import java.io.Serializable;
+
 import com.badlogic.gdx.math.Vector2;
 
-public class GameObject {
+public class GameObject implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+
+	private int id;
+	
+	private GameObjectType type = GameObjectType.UNDEFINED;
 
 	private float angle;
 
 	private Vector2 position = new Vector2(), size = new Vector2();
 
 	private float velocity, acceleration;
+	
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public float getAngle() {
 		return angle;
@@ -51,5 +67,12 @@ public class GameObject {
 	public void setAcceleration(float acceleration) {
 		this.acceleration = acceleration;
 	}
-
+	
+	public GameObjectType getType() {
+		return type;
+	}
+	
+	public void setType(GameObjectType type) {
+		this.type = type;
+	}
 }
