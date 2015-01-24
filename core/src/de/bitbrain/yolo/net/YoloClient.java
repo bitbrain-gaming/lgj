@@ -42,11 +42,6 @@ public class YoloClient extends Listener implements Disposable, GameStateCallbac
     }
 
     @Override
-    public void connected(Connection connection) {
-        client.sendTCP(new Events.Join(gameState.getPlayer().getShip()));
-    }
-
-    @Override
     public void received(Connection connection, Object object){
         if (object instanceof Events.Move) {
 
@@ -61,6 +56,8 @@ public class YoloClient extends Listener implements Disposable, GameStateCallbac
         }else if(object instanceof Events.Join){
             Events.Join response = (Events.Join)object;
             gameState.addGameObject(response.newPlayer);
+        }else if(object instanceof Events.GameOver){
+            gameState.setDidWin();
         }
     }
 
@@ -81,6 +78,11 @@ public class YoloClient extends Listener implements Disposable, GameStateCallbac
     }
 
     @Override
+    public void onReady() {
+        client.sendTCP(new Events.Join(gameState.getPlayer().getShip()));
+    }
+
+    @Override
     public void onMove(GameObject object) {
         client.sendUDP(new Events.Move(object));
     }
@@ -88,5 +90,10 @@ public class YoloClient extends Listener implements Disposable, GameStateCallbac
     @Override
     public void onCreate(GameObject object) {
         client.sendUDP(new Events.Spawn(object));
+    }
+
+    @Override
+    public void onGameOver() {
+        client.sendTCP(new Events.GameOver());
     }
 }

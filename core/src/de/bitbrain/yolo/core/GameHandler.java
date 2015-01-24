@@ -88,5 +88,7 @@ public class GameHandler {
 		});
 		state.addGameObject(playerShip);
 		state.setPlayer(new Player(playerShip, 100));
+
+		gameStateCallback.onReady();
 	}
 }

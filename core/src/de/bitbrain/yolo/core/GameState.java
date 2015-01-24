@@ -9,7 +9,9 @@ public class GameState implements Iterable<GameObject> {
 	private Map<String, GameObject> objects;
 	
 	private Player player;
-	
+
+	private boolean didWin = false;
+
 	public GameState() {
 		objects = new ConcurrentHashMap<String, GameObject>();
 	}
@@ -44,4 +46,12 @@ public class GameState implements Iterable<GameObject> {
 		this.player = player;
 	}
 
+
+	public boolean didWin() {
+		return didWin;
+	}
+
+	public void setDidWin() {
+		this.didWin = true;
+	}
 }

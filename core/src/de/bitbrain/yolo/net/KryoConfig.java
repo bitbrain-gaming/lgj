@@ -20,7 +20,9 @@ public class KryoConfig {
     public static void config(Kryo kryo){
         kryo.register(Events.Spawn.class);
         kryo.register(Events.Move.class);
-        kryo.register(Events.Collision.class);
+        kryo.register(Events.GameOver.class);
+
+        //kryo.register(Events.Collision.class);
         kryo.register(Events.Join.class);
         kryo.register(GameObject.class);
         kryo.register(GameObjectType.class);

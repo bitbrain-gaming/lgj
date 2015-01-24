@@ -18,4 +18,8 @@ public interface GameStateCallback extends Disposable{
      * @param object new projectile
      */
     void onCreate(GameObject object);
+
+    void onGameOver();
+
+    void onReady();
 }

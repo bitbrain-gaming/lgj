@@ -1,6 +1,7 @@
 package de.bitbrain.yolo.net;
 
 import de.bitbrain.yolo.core.GameObject;
+import de.bitbrain.yolo.core.GameState;
 
 /**
  * @author ksidpen
@@ -59,7 +60,9 @@ public class Events {
         }
     }
     public static class Join {
-        public final GameObject newPlayer;
+        public GameObject newPlayer;
+
+        public Join(){};
         public Join(GameObject newPlayer){
             this.newPlayer = newPlayer;
         }
@@ -72,30 +75,8 @@ public class Events {
         }
     }
 
-    public static class Outcome{
-        public enum TYPE {
-            WIN, LOOSE, DRAW
-        }
-        public enum PLAYER{
-            PLAYER1, PLAYER2
-        }
-
-        public TYPE state;
-        public Outcome.PLAYER player;
-
-        public Outcome(){};
-        public Outcome(TYPE state, PLAYER player) {
-            this.state = state;
-            this.player = player;
-        }
-
-        @Override
-        public String toString() {
-            return "Outcome{" +
-                    "state=" + state +
-                    ", player=" + player +
-                    '}';
-        }
+    public static class GameOver{
+        public GameOver(){};
     }
 
 }
