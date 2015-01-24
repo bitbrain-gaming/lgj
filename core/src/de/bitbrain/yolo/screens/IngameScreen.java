@@ -64,7 +64,8 @@ public class IngameScreen extends AbstractScreen {
 			}
 		});
 		
-		stage.addActor(new PlayerWidget(gameHandler.getPlayer()));
+		stage.addActor(new PlayerWidget(gameState.getPlayer()));
+		gameHandler.respawn(gameState.getPlayer());
 	}
 
 	@Override

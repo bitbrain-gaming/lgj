@@ -24,8 +24,6 @@ public class GameHandler {
 
 	private GameObject playerShip;
 
-	private Player player;
-
 	private CameraTrackingBehavior cameraBehavior;
 
 	private Camera camera;
@@ -42,11 +40,6 @@ public class GameHandler {
 		this.renderer = new Renderer();
 		initGame();
 		cameraBehavior = new CameraTrackingBehavior(playerShip, camera);
-		respawn(player);
-	}
-
-	public Player getPlayer() {
-		return player;
 	}
 
 	public void updateAndRender(float delta, Batch batch) {
@@ -95,6 +88,6 @@ public class GameHandler {
 			}
 		});
 		state.addGameObject(playerShip);
-		player = new Player(playerShip, 100);
+		state.setPlayer(new Player(playerShip, 100));
 	}
 }
