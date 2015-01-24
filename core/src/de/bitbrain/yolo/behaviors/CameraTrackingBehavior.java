@@ -27,15 +27,12 @@ public class CameraTrackingBehavior {
 
 		float distance = velocity.len();
 		velocity.nor();
-		if (distance <= 0.01f) {
-			focus();
-		} else {
-			double speed = (5.0) * distance;
+		double speed = (5.0) * distance;
 
-			// Round it up to prevent camera shaking
-			camera.position.x = (float) (camera.position.x + (velocity.x * speed * delta));
-			camera.position.y = (float) (camera.position.y + (velocity.y * speed * delta));
-		}
+		// Round it up to prevent camera shaking
+		camera.position.x = (float) (camera.position.x + (velocity.x * speed * delta));
+		camera.position.y = (float) (camera.position.y + (velocity.y * speed * delta));
+
 	}
 
 	public void focus() {
