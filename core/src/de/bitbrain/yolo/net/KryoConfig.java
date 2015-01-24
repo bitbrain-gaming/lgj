@@ -1,6 +1,7 @@
 package de.bitbrain.yolo.net;
 
 import com.esotericsoftware.kryo.Kryo;
+import de.bitbrain.yolo.core.GameState;
 
 /**
 * @author ksidpen
@@ -18,6 +19,8 @@ public class KryoConfig {
         kryo.register(Events.Collision.class);
         kryo.register(Events.Join.class);
         kryo.register(Events.Outcome.class);
+
+        kryo.register(GameState.class);
     }
 
 

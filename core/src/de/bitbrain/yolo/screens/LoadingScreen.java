@@ -51,6 +51,8 @@ public class LoadingScreen extends AbstractScreen {
 				return super.keyDown(event, keycode);
 			}
 		});
+
+
 	}
 
 	@Override

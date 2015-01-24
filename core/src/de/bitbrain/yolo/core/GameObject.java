@@ -79,4 +79,11 @@ public class GameObject implements Serializable {
 	public void setType(GameObjectType type) {
 		this.type = type;
 	}
+
+	public void replace(GameObject replacee){
+		this.angle = replacee.angle;
+		this.position = replacee.position;
+		this.velocity = replacee.velocity;
+		this.acceleration = replacee.acceleration;
+	}
 }
