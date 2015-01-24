@@ -50,6 +50,15 @@ public class GameHandler {
 		cameraBehavior.update(delta);
 	}
 	
+	public void removeGameObject(GameObject object) {
+		state.removeGameObject(object);
+		behaviors.remove(object);
+	}
+	
+	public void addGameObject(GameObject object) {
+		state.addGameObject(object);
+	}
+	
 	public void applyBehavior(GameObject object, Behavior behavior) {
 		behaviors.put(object, behavior);
 	}
@@ -59,7 +68,8 @@ public class GameHandler {
 		player.setSize(24f, 24f);
 		player.setPosition(0, 0);
 		player.setAngle(0f);
-		applyBehavior(player, new PlayerBehavior(camera));
+		player.setType(GameObjectType.PLAYER_1);
+		applyBehavior(player, new PlayerBehavior(camera, this));
 		state.addGameObject(player);
 	}
 }
