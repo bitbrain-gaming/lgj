@@ -33,7 +33,7 @@ public abstract class AbstractScreen implements Screen {
 	public final void show() {
 		camera = new OrthographicCamera();
 		batch = new SpriteBatch();
-		stage = new Stage();
+		stage = new Stage(new FillViewport(800, 600), batch);
 		tweenManager = new TweenManager();
 		onShow();
 	}
@@ -58,7 +58,7 @@ public abstract class AbstractScreen implements Screen {
 	@Override
 	public final void resize(int width, int height) {
 		camera.setToOrtho(true, width, height);
-		stage.setViewport(new FillViewport(width, height));
+		stage.getViewport().update(width, height);
 		onResize(width, height);
 	}
 
