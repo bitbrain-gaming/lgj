@@ -1,12 +1,16 @@
 package de.bitbrain.yolo.net;
 
+import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Disposable;
 import com.esotericsoftware.kryonet.Client;
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
+import de.bitbrain.yolo.YoloGame;
 import de.bitbrain.yolo.core.GameObject;
 import de.bitbrain.yolo.core.GameState;
 import de.bitbrain.yolo.core.GameStateCallback;
+import de.bitbrain.yolo.screens.MenuScreen;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -16,12 +20,14 @@ import java.net.InetAddress;
 */
 public class YoloClient extends Listener implements Disposable, GameStateCallback{
 
+    private final YoloGame game;
     private final Client client;
-    private final GameState game;
+    private final GameState gameState;
 
 
-    public YoloClient(GameState game) {
-        this.game = game;
+    public YoloClient(GameState game, YoloGame mainGame) {
+        this.game = mainGame;
+        this.gameState = game;
         client = new Client();
         KryoConfig.config(client.getKryo());
         client.start();
@@ -42,13 +48,22 @@ public class YoloClient extends Listener implements Disposable, GameStateCallbac
 
             //update entity
             Events.Move response = (Events.Move)object;
-            GameObject target = game.getGameObject(response.entity.getId());
+            GameObject target = gameState.getGameObject(response.entity.getId());
             if(target!=null)target.replace(response.entity);
 
         } else if(object instanceof Events.Spawn) {
             Events.Spawn response = (Events.Spawn)object;
-            game.addGameObject(response.entity);
+            gameState.addGameObject(response.entity);
         }
+    }
+
+    @Override
+    public void disconnected(Connection connection) {
+        Gdx.app.postRunnable(new Runnable() {
+            public void run() {
+                game.setScreen(new MenuScreen(game));
+            }
+        });
     }
 
     @Override

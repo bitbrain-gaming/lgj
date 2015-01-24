@@ -3,6 +3,7 @@ package de.bitbrain.yolo.screens;
 import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenEquations;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -15,7 +16,12 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import de.bitbrain.yolo.Assets;
 import de.bitbrain.yolo.SharedAssetManager;
 import de.bitbrain.yolo.YoloGame;
+import de.bitbrain.yolo.core.GameState;
+import de.bitbrain.yolo.core.GameStateCallback;
+import de.bitbrain.yolo.net.YoloClient;
 import de.bitbrain.yolo.tweens.ActorTween;
+
+import java.io.IOException;
 
 public class LoadingScreen extends AbstractScreen {
 	
@@ -52,8 +58,35 @@ public class LoadingScreen extends AbstractScreen {
 			}
 		});
 
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
 
+				try {
+					final GameState gameState = new GameState();
+					final YoloClient client = new YoloClient(gameState, game);
+					client.connect();
+
+					Gdx.app.postRunnable(new Runnable() {
+						public void run() {
+								game.setScreen(new IngameScreen(game, gameState, client));
+						}});
+				} catch (IOException e) {
+					Gdx.app.postRunnable(new Runnable() {
+						public void run() {
+							game.setScreen(new MenuScreen(game));
+						}});
+				} catch (IllegalArgumentException ex){
+					Gdx.app.postRunnable(new Runnable() {
+						public void run() {
+							game.setScreen(new MenuScreen(game));
+						}});
+				}
+			}
+		})
+		.start();
 	}
+
 
 	@Override
 	protected void onResize(int width, int height) {

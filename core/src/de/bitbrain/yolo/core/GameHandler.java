@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.g2d.Batch;
 
 import de.bitbrain.yolo.behaviors.Behavior;
+import de.bitbrain.yolo.behaviors.BehaviourWrapper;
 import de.bitbrain.yolo.behaviors.CameraTrackingBehavior;
 import de.bitbrain.yolo.behaviors.PlayerBehavior;
 import de.bitbrain.yolo.graphics.Renderer;
@@ -26,10 +27,13 @@ public class GameHandler {
 	private CameraTrackingBehavior cameraBehavior;
 	
 	private Camera camera;
-	
-	public GameHandler(GameState state, Camera camera) {
+
+	private GameStateCallback gameStateCallback;
+
+	public GameHandler(GameState state, Camera camera, GameStateCallback callback) {
 		this.state = state;
 		this.camera = camera;
+		this.gameStateCallback = callback;
 		physics = new Physics();
 		behaviors = new HashMap<GameObject, Behavior>();
 		this.renderer = new Renderer();
@@ -69,7 +73,12 @@ public class GameHandler {
 		player.setPosition(0, 0);
 		player.setAngle(0f);
 		player.setType(GameObjectType.PLAYER_1);
-		applyBehavior(player, new PlayerBehavior(camera, this));
+		applyBehavior(player, new BehaviourWrapper(new PlayerBehavior(camera, this)) {
+			@Override
+			public void post(GameObject target) {
+				gameStateCallback.onMove(target);
+			}
+		} );
 		state.addGameObject(player);
 	}
 }

@@ -10,25 +10,39 @@ import de.bitbrain.yolo.Assets;
 import de.bitbrain.yolo.YoloGame;
 import de.bitbrain.yolo.core.GameHandler;
 import de.bitbrain.yolo.core.GameState;
+import de.bitbrain.yolo.core.GameStateCallback;
 import de.bitbrain.yolo.graphics.ParallaxMap;
+import de.bitbrain.yolo.net.YoloServer;
+
+import java.io.IOException;
 
 public class IngameScreen extends AbstractScreen {
 	
-	private GameState gameState;
+	private final GameState gameState;
 	
 	private GameHandler gameHandler;
 	
 	private ParallaxMap backgroundMap;
 
-	IngameScreen(YoloGame game) {
+	private final GameStateCallback gameStateCallback;
+
+	IngameScreen(YoloGame game) throws IOException {
 		super(game);
+		gameState = new GameState();
+		gameStateCallback = new YoloServer(gameState);
+	}
+
+	IngameScreen(YoloGame game, GameState state, GameStateCallback callback) {
+		super(game);
+		gameState = state;
+		gameStateCallback = callback;
 	}
 
 	@Override
 	protected void onShow() {
 		backgroundMap = new ParallaxMap(Assets.TEX_SPACE, camera);
-		gameState = new GameState();
-		gameHandler = new GameHandler(gameState, camera);
+
+		gameHandler = new GameHandler(gameState, camera, gameStateCallback);
 		stage.addCaptureListener(new InputListener() {
 			@Override
 			public boolean keyDown(InputEvent event, int keycode) {

@@ -19,8 +19,11 @@ import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
 import de.bitbrain.yolo.Assets;
 import de.bitbrain.yolo.SharedAssetManager;
 import de.bitbrain.yolo.YoloGame;
+import de.bitbrain.yolo.net.YoloServer;
 import de.bitbrain.yolo.tweens.ActorTween;
 import de.bitbrain.yolo.ui.UIFactory;
+
+import java.io.IOException;
 
 public class MenuScreen extends AbstractScreen {
 
@@ -51,7 +54,11 @@ public class MenuScreen extends AbstractScreen {
 		layout.add(UIFactory.generatePrimaryButton("Host game", new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				game.setScreen(new IngameScreen(game));
+				try {
+					game.setScreen(new IngameScreen(game));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		})).pad(20f).row();
 		layout.add(UIFactory.generatePrimaryButton("Join game", new ClickListener() {
