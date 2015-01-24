@@ -42,7 +42,6 @@ public class GameHandler {
 		this.renderer = new Renderer();
 		initGame();
 		cameraBehavior = new CameraTrackingBehavior(playerShip, camera);
-		cameraBehavior.focus();
 		respawn(player);
 	}
 
@@ -79,6 +78,7 @@ public class GameHandler {
 		player.reset();
 		player.getShip().setPosition((float) Math.random() * 3000f,
 				(float) Math.random() * 3000f);
+		cameraBehavior.focus();
 	}
 
 	private void initGame() {

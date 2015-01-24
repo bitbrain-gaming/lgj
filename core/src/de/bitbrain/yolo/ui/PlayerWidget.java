@@ -20,6 +20,7 @@ public class PlayerWidget extends Table {
 		labelStyle.font = SharedAssetManager.get(Assets.FNT_REGULAR, BitmapFont.class);
 		labelStyle.fontColor = new Color(1f, 1f, 1f, 0.7f);
 		Label name = new Label("Player", labelStyle);
+		name.setFontScale(0.4f);
 		this.player = player;
 		left().add(name).padLeft(20f);
 	}

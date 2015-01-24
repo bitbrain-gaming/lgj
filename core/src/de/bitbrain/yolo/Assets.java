@@ -13,6 +13,7 @@ public final class Assets {
 	public static String TEX_SHIP = DIR_IMAGES + "ship.png";
 	public static String TEX_SHOT = DIR_IMAGES + "shot.png";
 	public static String TEX_PATCH_BORDER = DIR_IMAGES + "border.9.png";
+	public static String TEX_PATCH_FILL = DIR_IMAGES + "fill.9.png";
 	public static String TEX_SPACE = DIR_IMAGES + "space-far.png";
 	public static String TEX_FOG = DIR_IMAGES + "space-middle.png";
 	
