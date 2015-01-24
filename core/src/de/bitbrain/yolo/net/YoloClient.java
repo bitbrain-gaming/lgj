@@ -30,6 +30,7 @@ public class YoloClient extends Listener implements Disposable, GameStateCallbac
         this.gameState = game;
         client = new Client();
         KryoConfig.config(client.getKryo());
+
         client.start();
     }
 
@@ -38,8 +39,11 @@ public class YoloClient extends Listener implements Disposable, GameStateCallbac
 
         client.connect(KryoConfig.timeout, target, KryoConfig.TCPPort, KryoConfig.UDPPort);
         client.addListener(this);
+    }
 
-        //client.sendTCP(new Events.Join());
+    @Override
+    public void connected(Connection connection) {
+        client.sendTCP(new Events.Join());
     }
 
     @Override

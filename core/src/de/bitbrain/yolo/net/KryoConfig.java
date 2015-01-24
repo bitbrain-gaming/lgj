@@ -1,6 +1,9 @@
 package de.bitbrain.yolo.net;
 
+import com.badlogic.gdx.math.Vector2;
 import com.esotericsoftware.kryo.Kryo;
+import de.bitbrain.yolo.core.GameObject;
+import de.bitbrain.yolo.core.GameObjectType;
 import de.bitbrain.yolo.core.GameState;
 
 /**
@@ -8,8 +11,8 @@ import de.bitbrain.yolo.core.GameState;
 */
 public class KryoConfig {
 
-    public static final int UDPPort = 54555;
-    public static final int TCPPort = 54777;
+    public static final int UDPPort = 6474;
+    public static final int TCPPort = 6476;
 
     public static final int timeout = 5000;
 
@@ -18,9 +21,9 @@ public class KryoConfig {
         kryo.register(Events.Move.class);
         kryo.register(Events.Collision.class);
         kryo.register(Events.Join.class);
-        kryo.register(Events.Outcome.class);
-
-        kryo.register(GameState.class);
+        kryo.register(GameObject.class);
+        kryo.register(GameObjectType.class);
+        kryo.register(Vector2.class);
     }
 
 

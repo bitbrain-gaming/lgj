@@ -8,8 +8,9 @@ import de.bitbrain.yolo.core.GameObject;
 public class Events {
 
     public static class Spawn{
-        public final GameObject entity;
+        public GameObject entity;
 
+        public Spawn(){};
         public Spawn(GameObject entity) {
             this.entity = entity;
         }
@@ -23,8 +24,9 @@ public class Events {
     }
 
     public static class Move{
-        public final GameObject entity;
+        public GameObject entity;
 
+        public Move(){};
         public Move(GameObject entity) {
             this.entity = entity;
         }
@@ -39,9 +41,10 @@ public class Events {
 
     public static class Collision{
 
-        public final GameObject entity1;
-        public final GameObject entity2;
+        public GameObject entity1;
+        public GameObject entity2;
 
+        public Collision(){};
         public Collision(GameObject entity1, GameObject entity2) {
             this.entity1 = entity1;
             this.entity2 = entity2;
@@ -56,7 +59,7 @@ public class Events {
         }
     }
     public static class Join {
-
+        public Join(){};
     }
 
     public static class Outcome{
@@ -67,9 +70,10 @@ public class Events {
             PLAYER1, PLAYER2
         }
 
-        public final TYPE state;
-        public final Outcome.PLAYER player;
+        public TYPE state;
+        public Outcome.PLAYER player;
 
+        public Outcome(){};
         public Outcome(TYPE state, PLAYER player) {
             this.state = state;
             this.player = player;
