@@ -21,7 +21,7 @@ public abstract class AbstractScreen implements Screen {
 	
 	private Batch batch;
 	
-	private TweenManager tweenManager;
+	protected TweenManager tweenManager;
 	
 	protected YoloGame game;
 	

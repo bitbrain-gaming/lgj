@@ -1,5 +1,8 @@
 package de.bitbrain.yolo.screens;
 
+import aurelienribon.tweenengine.Tween;
+import aurelienribon.tweenengine.TweenEquations;
+
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -16,6 +19,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
 import de.bitbrain.yolo.Assets;
 import de.bitbrain.yolo.SharedAssetManager;
 import de.bitbrain.yolo.YoloGame;
+import de.bitbrain.yolo.tweens.ActorTween;
 import de.bitbrain.yolo.ui.UIFactory;
 
 public class MenuScreen extends AbstractScreen {
@@ -37,6 +41,12 @@ public class MenuScreen extends AbstractScreen {
 		Drawable logoDrawable = new SpriteDrawable(new Sprite(logoTexture));
 		Image image = new Image(logoDrawable);
 		layout.add(image).padBottom(30f).row();
+		
+		Tween.to(image, ActorTween.ALPHA, 1f)
+		     .target(0.6f)
+			 .repeatYoyo(Tween.INFINITY, 0f)
+			 .ease(TweenEquations.easeInCubic)
+			 .start(tweenManager);
 		
 		layout.add(UIFactory.generatePrimaryButton("Host game", new ClickListener() {
 			@Override
