@@ -20,24 +20,22 @@ public class CameraTrackingBehavior {
 	}
 
 	public void update(float delta) {
-		/*velocity.x = (float) (player.getPosition().x
+		velocity.x = (float) (player.getPosition().x
 				+ Math.floor(player.getSize().x / 2.0f) - (camera.position.x));
 		velocity.y = (float) (player.getPosition().y
 				+ Math.floor(player.getSize().y / 2.0f) - (camera.position.y));
 
 		float distance = velocity.len();
-		velocity = velocity.nor();
-
-		if (distance <= 0.05f) {
+		velocity.nor();
+		if (distance <= 0.1f) {
 			focus();
 		} else {
-			double speed = (40.0 + delta) * distance;
+			double speed = (5.0) * distance;
 
 			// Round it up to prevent camera shaking
-			camera.position.x = (float) (camera.position.x + velocity.x * speed);
-			camera.position.y = (float) (camera.position.y + velocity.y * speed);
-		}*/
-		//focus();
+			camera.position.x = (float) (camera.position.x + (velocity.x * speed * delta));
+			camera.position.y = (float) (camera.position.y + (velocity.y * speed * delta));
+		}
 	}
 
 	private void focus() {

@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.badlogic.gdx.utils.viewport.FillViewport;
 
 import de.bitbrain.yolo.YoloGame;
 
@@ -33,7 +33,7 @@ public abstract class AbstractScreen implements Screen {
 	public final void show() {
 		camera = new OrthographicCamera();
 		batch = new SpriteBatch();
-		stage = new Stage(new ScreenViewport(), batch);
+		stage = new Stage(new FillViewport(800, 600), batch);
 		tweenManager = new TweenManager();
 		Gdx.input.setInputProcessor(stage);
 		onShow();
