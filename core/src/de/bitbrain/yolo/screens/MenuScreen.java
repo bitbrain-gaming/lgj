@@ -51,13 +51,13 @@ public class MenuScreen extends AbstractScreen {
 		layout.add(UIFactory.generatePrimaryButton("Host game", new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				super.clicked(event, x, y);
+				game.setScreen(new IngameScreen(game));
 			}
 		})).pad(20f).row();
 		layout.add(UIFactory.generatePrimaryButton("Join game", new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				super.clicked(event, x, y);
+				game.setScreen(new LoadingScreen(game));
 			}
 		})).row();
 		
