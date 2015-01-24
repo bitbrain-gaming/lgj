@@ -26,7 +26,7 @@ public class IngameScreen extends AbstractScreen {
 
 	@Override
 	protected void onShow() {
-		backgroundMap = new ParallaxMap(Assets.TEX_SPACE, camera);
+		backgroundMap = new ParallaxMap(Assets.TEX_SPACE, camera, 0.1f);
 		gameState = new GameState();
 		gameHandler = new GameHandler(gameState, camera);
 		stage.addCaptureListener(new InputListener() {
