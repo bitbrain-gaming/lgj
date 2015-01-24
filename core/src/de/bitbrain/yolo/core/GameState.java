@@ -14,7 +14,7 @@ public class GameState implements Iterable<GameObject> {
 		objects = new ConcurrentHashMap<String, GameObject>();
 	}
 	
-	public GameObject getGameObject(int id) {
+	public GameObject getGameObject(String id) {
 		return objects.get(id);
 	}
 

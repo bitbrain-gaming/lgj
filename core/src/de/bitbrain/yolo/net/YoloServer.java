@@ -20,8 +20,8 @@ public class YoloServer extends Listener implements Disposable, GameStateCallbac
     private final GameState game;
 
 
-    public YoloServer() throws IOException {
-        this.game = new GameState();
+    public YoloServer(GameState game) throws IOException {
+        this.game = game;
 
         server = new Server();
         KryoConfig.config(server.getKryo());
@@ -34,12 +34,15 @@ public class YoloServer extends Listener implements Disposable, GameStateCallbac
     @Override
     public void received(Connection connection, Object object){
         if (object instanceof Events.Move) {
+            //update entity
             Events.Move response = (Events.Move)object;
-            System.out.println(response);
-        }else
-            if(object instanceof Events.Join){
-                System.out.println("#YOLOOOOOOO");
-            }
+            GameObject target = game.getGameObject(response.entity.getId());
+            if(target!=null)target.replace(response.entity);
+
+        } else if(object instanceof Events.Spawn) {
+            Events.Spawn response = (Events.Spawn)object;
+            game.addGameObject(response.entity);
+        }
     }
 
     @Override
@@ -48,13 +51,14 @@ public class YoloServer extends Listener implements Disposable, GameStateCallbac
         server.close();
     }
 
+
     @Override
     public void onMove(GameObject object) {
-
+        server.sendToAllUDP(new Events.Move(object));
     }
 
     @Override
     public void onCreate(GameObject object) {
-
+        server.sendToAllUDP(new Events.Spawn(object));
     }
 }

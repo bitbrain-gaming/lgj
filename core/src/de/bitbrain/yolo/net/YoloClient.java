@@ -39,8 +39,15 @@ public class YoloClient extends Listener implements Disposable, GameStateCallbac
     @Override
     public void received(Connection connection, Object object){
         if (object instanceof Events.Move) {
-            Events.Move response = (Events.Move)object;
 
+            //update entity
+            Events.Move response = (Events.Move)object;
+            GameObject target = game.getGameObject(response.entity.getId());
+            if(target!=null)target.replace(response.entity);
+
+        } else if(object instanceof Events.Spawn) {
+            Events.Spawn response = (Events.Spawn)object;
+            game.addGameObject(response.entity);
         }
     }
 
