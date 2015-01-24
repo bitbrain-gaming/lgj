@@ -73,7 +73,7 @@ public class IngameScreen extends AbstractScreen {
 	protected void onDraw(Batch batch, float delta) {
 		backgroundMap.draw(batch);
 		fogMap2.draw(batch);
-		gameHandler.updateAndRender(delta, batch);
 		fogMap1.draw(batch);
+		gameHandler.updateAndRender(delta, batch);
 	}
 }
