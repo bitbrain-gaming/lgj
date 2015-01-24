@@ -59,7 +59,17 @@ public class Events {
         }
     }
     public static class Join {
-        public Join(){};
+        public final GameObject newPlayer;
+        public Join(GameObject newPlayer){
+            this.newPlayer = newPlayer;
+        }
+
+        @Override
+        public String toString() {
+            return "Join{" +
+                    "newPlayer=" + newPlayer +
+                    '}';
+        }
     }
 
     public static class Outcome{

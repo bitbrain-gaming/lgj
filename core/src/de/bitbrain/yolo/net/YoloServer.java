@@ -1,12 +1,15 @@
 package de.bitbrain.yolo.net;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Disposable;
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
 import com.esotericsoftware.kryonet.Server;
+import de.bitbrain.yolo.YoloGame;
 import de.bitbrain.yolo.core.GameObject;
 import de.bitbrain.yolo.core.GameState;
 import de.bitbrain.yolo.core.GameStateCallback;
+import de.bitbrain.yolo.screens.MenuScreen;
 
 import java.io.IOException;
 
@@ -16,13 +19,14 @@ import java.io.IOException;
 
 public class YoloServer extends Listener implements Disposable, GameStateCallback {
 
+    private final YoloGame game;
     private final Server server;
-    private final GameState game;
+    private final GameState gameState;
 
 
-    public YoloServer(GameState game) throws IOException {
+    public YoloServer(GameState gameState,  YoloGame game) throws IOException {
+        this.gameState = gameState;
         this.game = game;
-
         server = new Server();
         KryoConfig.config(server.getKryo());
         server.addListener(this);
@@ -36,13 +40,29 @@ public class YoloServer extends Listener implements Disposable, GameStateCallbac
         if (object instanceof Events.Move) {
             //update entity
             Events.Move response = (Events.Move)object;
-            GameObject target = game.getGameObject(response.entity.getId());
+            GameObject target = gameState.getGameObject(response.entity.getId());
             if(target!=null)target.replace(response.entity);
-
         } else if(object instanceof Events.Spawn) {
             Events.Spawn response = (Events.Spawn)object;
-            game.addGameObject(response.entity);
+            gameState.addGameObject(response.entity);
+        }else if(object instanceof Events.Join){
+            //add
         }
+    }
+
+    @Override
+    public void connected(Connection connection) {
+        server.sendToAllTCP(new Events.Join());
+    }
+
+    @Override
+    public void disconnected(Connection connection) {
+        dispose();
+        Gdx.app.postRunnable(new Runnable() {
+            public void run() {
+                game.setScreen(new MenuScreen(game));
+            }
+        });
     }
 
     @Override

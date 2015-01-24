@@ -58,6 +58,8 @@ public class YoloClient extends Listener implements Disposable, GameStateCallbac
         } else if(object instanceof Events.Spawn) {
             Events.Spawn response = (Events.Spawn)object;
             gameState.addGameObject(response.entity);
+        }else if(object instanceof Events.Join){
+            //add
         }
     }
 

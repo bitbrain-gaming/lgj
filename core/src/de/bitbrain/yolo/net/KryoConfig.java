@@ -5,6 +5,7 @@ import com.esotericsoftware.kryo.Kryo;
 import de.bitbrain.yolo.core.GameObject;
 import de.bitbrain.yolo.core.GameObjectType;
 import de.bitbrain.yolo.core.GameState;
+import de.bitbrain.yolo.core.Player;
 
 /**
 * @author ksidpen
@@ -24,6 +25,7 @@ public class KryoConfig {
         kryo.register(GameObject.class);
         kryo.register(GameObjectType.class);
         kryo.register(Vector2.class);
+        kryo.register(Player.class);
     }
 
 

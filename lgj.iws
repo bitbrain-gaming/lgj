@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e66d67eb-009d-4678-8c36-eee620d8d731" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/Events.java" afterPath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/Events.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameState.java" afterPath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/screens/IngameScreen.java" afterPath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/screens/IngameScreen.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/KryoConfig.java" afterPath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/KryoConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloClient.java" afterPath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloClient.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloServer.java" afterPath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloServer.java" />
@@ -71,8 +73,8 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <breakpoint_rules converted="true" />
     <ui_properties converted="true" />
+    <breakpoint_rules converted="true" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -82,11 +84,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.5068389">
       <split-first>
         <leaf>
-          <file leaf-file-name="YoloClient.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="YoloClient.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloClient.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="538" max-vertical-offset="1305">
-                  <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.47976878" vertical-offset="140" max-vertical-offset="1335">
+                  <caret line="37" column="73" selection-start-line="37" selection-start-column="73" selection-end-line="37" selection-end-column="73" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#1314#1315#0" expanded="true" />
@@ -99,11 +101,27 @@
           <file leaf-file-name="YoloServer.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloServer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="163" max-vertical-offset="990">
-                  <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="350" max-vertical-offset="1290">
+                  <caret line="54" column="44" selection-start-line="54" selection-start-column="44" selection-end-line="54" selection-end-column="44" />
                   <folding>
                     <element signature="imports" expanded="true" />
+                    <element signature="e#1703#1704#0" expanded="true" />
+                    <element signature="e#1757#1758#0" expanded="true" />
+                    <element signature="e#2173#2174#0" expanded="true" />
+                    <element signature="e#2233#2234#0" expanded="true" />
+                    <element signature="e#2294#2295#0" expanded="true" />
+                    <element signature="e#2355#2356#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="IngameScreen.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/screens/IngameScreen.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="1095">
+                  <caret line="43" column="29" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -111,18 +129,41 @@
           <file leaf-file-name="Events.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/Events.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="1395">
-                  <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="590" max-vertical-offset="1545">
+                  <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#1427#1428#0" expanded="true" />
+                    <element signature="e#1477#1478#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="GameStateCallback.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameStateCallback.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
+                  <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="GameStateCallback.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameStateCallback.java">
+          <file leaf-file-name="Physics.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/Physics.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.3911343" vertical-offset="0" max-vertical-offset="767">
-                  <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
+                  <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/Player.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
+                  <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
                   <folding />
                 </state>
               </provider>
@@ -131,12 +172,10 @@
           <file leaf-file-name="GameHandler.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameHandler.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="523" max-vertical-offset="1290">
-                  <caret line="78" column="38" selection-start-line="78" selection-start-column="38" selection-end-line="78" selection-end-column="38" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="605" max-vertical-offset="1470">
+                  <caret line="83" column="29" selection-start-line="83" selection-start-column="29" selection-end-line="83" selection-end-column="29" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#2050#2051#0" expanded="true" />
-                    <element signature="e#2093#2094#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -145,7 +184,7 @@
           <file leaf-file-name="LoadingScreen.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/screens/LoadingScreen.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1230">
+                <state vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="1095">
                   <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
                   <folding />
                 </state>
@@ -156,11 +195,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="KryoConfig.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="KryoConfig.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/KryoConfig.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.37157756" vertical-offset="0" max-vertical-offset="767">
-                  <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
+                  <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
                   <folding />
                 </state>
               </provider>
@@ -169,23 +208,22 @@
           <file leaf-file-name="GameObjectType.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameObjectType.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
+                <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="225">
                   <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="GameState.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="GameState.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameState.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
-                  <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.32947975" vertical-offset="0" max-vertical-offset="865">
+                  <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
+                    <element signature="e#405#406#0" expanded="true" />
                     <element signature="e#434#435#0" expanded="true" />
-                    <element signature="e#487#488#0" expanded="true" />
-                    <element signature="e#537#538#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -2340,18 +2378,18 @@
         <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/behaviors/RemotePlayerBehaviour.java" />
         <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/behaviors/PlayerBehavior.java" />
         <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameObject.java" />
-        <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameState.java" />
         <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/behaviors/CameraTrackingBehavior.java" />
         <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/behaviors/BehaviourWrapper.java" />
         <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameHandler.java" />
         <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/screens/MenuScreen.java" />
         <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/screens/LoadingScreen.java" />
-        <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/screens/IngameScreen.java" />
-        <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/Events.java" />
-        <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloServer.java" />
-        <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/KryoConfig.java" />
-        <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloClient.java" />
         <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameStateCallback.java" />
+        <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/KryoConfig.java" />
+        <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/screens/IngameScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloClient.java" />
+        <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloServer.java" />
+        <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/Events.java" />
+        <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameState.java" />
       </list>
     </option>
   </component>
@@ -2694,6 +2732,19 @@
       </ExternalSystemSettings>
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -2720,19 +2771,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2858,7 +2896,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2872,7 +2910,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1477363" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32603773" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32603773" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2909,16 +2947,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="795">
-          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="840">
@@ -2942,7 +2970,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="96" max-vertical-offset="1395">
           <caret line="56" column="5" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="e#1427#1428#0" expanded="true" />
+            <element signature="e#1477#1478#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2974,9 +3005,8 @@
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#405#406#0" expanded="true" />
             <element signature="e#434#435#0" expanded="true" />
-            <element signature="e#487#488#0" expanded="true" />
-            <element signature="e#537#538#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2987,6 +3017,12 @@
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1703#1704#0" expanded="true" />
+            <element signature="e#1757#1758#0" expanded="true" />
+            <element signature="e#2173#2174#0" expanded="true" />
+            <element signature="e#2233#2234#0" expanded="true" />
+            <element signature="e#2294#2295#0" expanded="true" />
+            <element signature="e#2355#2356#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3014,7 +3050,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="96" max-vertical-offset="1395">
           <caret line="56" column="5" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="e#1427#1428#0" expanded="true" />
+            <element signature="e#1477#1478#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3046,9 +3085,8 @@
           <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#405#406#0" expanded="true" />
             <element signature="e#434#435#0" expanded="true" />
-            <element signature="e#487#488#0" expanded="true" />
-            <element signature="e#537#538#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3059,6 +3097,12 @@
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1703#1704#0" expanded="true" />
+            <element signature="e#1757#1758#0" expanded="true" />
+            <element signature="e#2173#2174#0" expanded="true" />
+            <element signature="e#2233#2234#0" expanded="true" />
+            <element signature="e#2294#2295#0" expanded="true" />
+            <element signature="e#2355#2356#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3067,7 +3111,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#1427#1428#0" expanded="true" />
+            <element signature="e#1477#1478#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3142,13 +3189,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/Physics.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57225436" vertical-offset="0" max-vertical-offset="865">
-          <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/behaviors/Behavior.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13872832" vertical-offset="0" max-vertical-offset="865">
@@ -3190,14 +3230,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/screens/IngameScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="780" max-vertical-offset="1080">
-          <caret line="69" column="4" selection-start-line="69" selection-start-column="4" selection-end-line="69" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/screens/LoadingScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="373" max-vertical-offset="1140">
@@ -3210,7 +3242,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2848" max-vertical-offset="3615">
           <caret line="234" column="0" selection-start-line="234" selection-start-column="0" selection-end-line="234" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3226,15 +3257,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2276" max-vertical-offset="3030">
           <caret line="227" column="52" selection-start-line="227" selection-start-column="52" selection-end-line="227" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/Events.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="1395">
-          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3251,8 +3273,8 @@
         <state vertical-scroll-proportion="0.3918399" vertical-offset="961" max-vertical-offset="8355">
           <caret line="121" column="64" selection-start-line="121" selection-start-column="64" selection-end-line="121" selection-end-column="64" />
           <folding>
-            <element signature="e#4611#4612#0" expanded="true" />
-            <element signature="e#4669#4670#0" expanded="true" />
+            <element signature="e#4611#4612#0" expanded="false" />
+            <element signature="e#4669#4670#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3269,19 +3291,46 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.22543353" vertical-offset="0" max-vertical-offset="865">
           <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/Physics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
+          <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameHandler.java">
+    <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="523" max-vertical-offset="1290">
-          <caret line="78" column="38" selection-start-line="78" selection-start-column="38" selection-end-line="78" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2050#2051#0" expanded="true" />
-            <element signature="e#2093#2094#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
+          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/screens/IngameScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="1095">
+          <caret line="43" column="29" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameStateCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
+          <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/KryoConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
+          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3296,54 +3345,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloClient.java">
+    <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="538" max-vertical-offset="1305">
-          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="605" max-vertical-offset="1470">
+          <caret line="83" column="29" selection-start-line="83" selection-start-column="29" selection-end-line="83" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1314#1315#0" expanded="true" />
-            <element signature="e#1363#1364#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="163" max-vertical-offset="990">
-          <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="350" max-vertical-offset="1290">
+          <caret line="54" column="44" selection-start-line="54" selection-start-column="44" selection-end-line="54" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1703#1704#0" expanded="true" />
+            <element signature="e#1757#1758#0" expanded="true" />
+            <element signature="e#2173#2174#0" expanded="true" />
+            <element signature="e#2233#2234#0" expanded="true" />
+            <element signature="e#2294#2295#0" expanded="true" />
+            <element signature="e#2355#2356#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/Events.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="590" max-vertical-offset="1545">
+          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <folding>
+            <element signature="e#1427#1428#0" expanded="true" />
+            <element signature="e#1477#1478#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.32947975" vertical-offset="0" max-vertical-offset="865">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#405#406#0" expanded="true" />
             <element signature="e#434#435#0" expanded="true" />
-            <element signature="e#487#488#0" expanded="true" />
-            <element signature="e#537#538#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/KryoConfig.java">
+    <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37157756" vertical-offset="0" max-vertical-offset="767">
-          <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameStateCallback.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3911343" vertical-offset="0" max-vertical-offset="767">
-          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-          <folding />
+        <state vertical-scroll-proportion="0.47976878" vertical-offset="140" max-vertical-offset="1335">
+          <caret line="37" column="73" selection-start-line="37" selection-start-column="73" selection-end-line="37" selection-end-column="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1314#1315#0" expanded="true" />
+            <element signature="e#1363#1364#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

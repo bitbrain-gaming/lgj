@@ -31,7 +31,7 @@ public class IngameScreen extends AbstractScreen {
 	IngameScreen(YoloGame game) throws IOException {
 		super(game);
 		gameState = new GameState();
-		gameStateCallback = new YoloServer(gameState);
+		gameStateCallback = new YoloServer(gameState, game);
 	}
 
 	IngameScreen(YoloGame game, GameState state, GameStateCallback callback) {
@@ -70,7 +70,6 @@ public class IngameScreen extends AbstractScreen {
 	@Override
 	protected void onResize(int width, int height) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

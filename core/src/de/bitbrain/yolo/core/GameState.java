@@ -22,6 +22,7 @@ public class GameState implements Iterable<GameObject> {
 		objects.put(gameObject.getId(), gameObject);
 	}
 
+
 	public void removeGameObject(GameObject gameObject) {
 		objects.remove(gameObject.getId());
 	}
