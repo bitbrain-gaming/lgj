@@ -7,16 +7,23 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 
 import de.bitbrain.yolo.YoloGame;
+import de.bitbrain.yolo.core.GameHandler;
+import de.bitbrain.yolo.core.GameState;
 
 public class IngameScreen extends AbstractScreen {
+	
+	private GameState gameState;
+	
+	private GameHandler gameHandler;
 
 	IngameScreen(YoloGame game) {
 		super(game);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	protected void onShow() {
+		gameState = new GameState();
+		gameHandler = new GameHandler(gameState);
 		stage.addCaptureListener(new InputListener() {
 			@Override
 			public boolean keyDown(InputEvent event, int keycode) {
@@ -36,9 +43,7 @@ public class IngameScreen extends AbstractScreen {
 	}
 
 	@Override
-	protected void onDraw(Batch batch) {
-		// TODO Auto-generated method stub
-		
+	protected void onDraw(Batch batch, float delta) {
+		gameHandler.updateAndRender(delta, batch);
 	}
-
 }

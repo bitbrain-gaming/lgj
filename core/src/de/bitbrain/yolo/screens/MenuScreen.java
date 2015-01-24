@@ -29,7 +29,7 @@ public class MenuScreen extends AbstractScreen {
 	}
 
 	@Override
-	protected void onDraw(Batch batch) {
+	protected void onDraw(Batch batch, float delta) {
 		
 	}
 
@@ -65,6 +65,7 @@ public class MenuScreen extends AbstractScreen {
 		labelStyle.font = SharedAssetManager.get(Assets.FNT_REGULAR, BitmapFont.class);
 		Label label = new Label("Created by Dennis Pawlik and Miguel Gonzalez. YOLO!", labelStyle);
 		label.setFontScale(0.5f);
+		label.setColor(1f, 1f, 1f, 0.3f);
 		layout.add(label).padTop(70f);
 		stage.addActor(layout);
 	}

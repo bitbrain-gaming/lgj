@@ -60,7 +60,7 @@ public class LoadingScreen extends AbstractScreen {
 	}
 
 	@Override
-	protected void onDraw(Batch batch) {
+	protected void onDraw(Batch batch, float delta) {
 		// TODO Auto-generated method stub
 		
 	}

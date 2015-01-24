@@ -50,7 +50,7 @@ public abstract class AbstractScreen implements Screen {
 		batch.setProjectionMatrix(camera.combined);
 		
 		batch.begin();
-			onDraw(batch);
+			onDraw(batch, delta);
 		batch.end();
 		
 		stage.draw();
@@ -88,5 +88,5 @@ public abstract class AbstractScreen implements Screen {
 	
 	protected abstract void onShow();
 	protected abstract void onResize(int width, int height);
-	protected abstract void onDraw(Batch batch);
+	protected abstract void onDraw(Batch batch, float delta);
 }
