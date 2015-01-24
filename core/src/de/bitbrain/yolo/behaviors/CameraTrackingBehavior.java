@@ -32,7 +32,6 @@ public class CameraTrackingBehavior {
 		// Round it up to prevent camera shaking
 		camera.position.x = (float) (camera.position.x + (velocity.x * speed * delta));
 		camera.position.y = (float) (camera.position.y + (velocity.y * speed * delta));
-
 	}
 
 	public void focus() {

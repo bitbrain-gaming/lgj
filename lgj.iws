@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e66d67eb-009d-4678-8c36-eee620d8d731" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/behaviors/CameraTrackingBehavior.java" afterPath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/behaviors/CameraTrackingBehavior.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameState.java" afterPath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameState.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameStateCallback.java" afterPath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameStateCallback.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/behaviors/PlayerBehavior.java" afterPath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/behaviors/PlayerBehavior.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloClient.java" afterPath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloServer.java" afterPath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloServer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lgj.iws" afterPath="$PROJECT_DIR$/lgj.iws" />
     </list>
     <ignored path="lgj.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,8 +65,8 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties converted="true" />
     <breakpoint_rules converted="true" />
+    <ui_properties converted="true" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -84,7 +79,7 @@
           <file leaf-file-name="GameState.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameState.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+                <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="540">
                   <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
                   <folding>
                     <element signature="imports" expanded="true" />
@@ -97,20 +92,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Map.java" pinned="false" current-in-tab="false">
-            <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/src.zip!/java/util/Map.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="2343" max-vertical-offset="17445">
-                  <caret line="198" column="64" selection-start-line="198" selection-start-column="64" selection-end-line="198" selection-end-column="64" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="YoloClient.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloClient.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1125">
+                <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="1125">
                   <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
                   <folding>
                     <element signature="imports" expanded="true" />
@@ -126,7 +111,7 @@
           <file leaf-file-name="YoloServer.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloServer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1050">
+                <state vertical-scroll-proportion="0.0" vertical-offset="720" max-vertical-offset="1050">
                   <caret line="48" column="27" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
                   <folding>
                     <element signature="imports" expanded="true" />
@@ -154,28 +139,28 @@
           <file leaf-file-name="PlayerBehavior.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/behaviors/PlayerBehavior.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1005">
+                <state vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="1095">
                   <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="CameraTrackingBehavior.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="CameraTrackingBehavior.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/behaviors/CameraTrackingBehavior.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.046260603" vertical-offset="0" max-vertical-offset="1297">
-                  <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
+                  <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="GameStateCallback.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="GameStateCallback.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameStateCallback.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
-                  <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+                <state vertical-scroll-proportion="0.17321016" vertical-offset="0" max-vertical-offset="1299">
+                  <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
                   <folding />
                 </state>
               </provider>
@@ -184,7 +169,7 @@
           <file leaf-file-name="GameObject.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameObject.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1125">
+                <state vertical-scroll-proportion="0.0" vertical-offset="930" max-vertical-offset="1125">
                   <caret line="83" column="16" selection-start-line="83" selection-start-column="16" selection-end-line="83" selection-end-column="16" />
                   <folding>
                     <element signature="e#698#699#0" expanded="true" />
@@ -197,7 +182,7 @@
           <file leaf-file-name="KryoConfig.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/KryoConfig.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
+                <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="480">
                   <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
                   <folding />
                 </state>
@@ -211,7 +196,7 @@
           <file leaf-file-name="KryoConfig.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/KryoConfig.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.2544333" vertical-offset="0" max-vertical-offset="1297">
+                <state vertical-scroll-proportion="0.25404158" vertical-offset="0" max-vertical-offset="1299">
                   <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
                   <folding />
                 </state>
@@ -2359,9 +2344,10 @@
         <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameHandler.java" />
         <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameObject.java" />
         <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameState.java" />
-        <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameStateCallback.java" />
         <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloClient.java" />
         <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloServer.java" />
+        <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/behaviors/CameraTrackingBehavior.java" />
+        <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameStateCallback.java" />
       </list>
     </option>
   </component>
@@ -2406,61 +2392,12 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lgj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lgj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lgj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lgj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lgj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="lgj" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lgj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewLibrariesNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2561,6 +2498,41 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lgj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lgj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lgj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lgj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lgj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2718,19 +2690,6 @@
       </ExternalSystemSettings>
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -2757,6 +2716,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2873,7 +2845,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-2560" y="-140" width="2560" height="1417" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2893,7 +2865,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1477363" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1477363" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32679245" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -3268,7 +3240,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870">
           <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3276,7 +3247,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
           <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3355,14 +3325,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameStateCallback.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
-          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1050">
@@ -3401,8 +3363,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/behaviors/CameraTrackingBehavior.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.046260603" vertical-offset="0" max-vertical-offset="1297">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
+          <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameStateCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17321016" vertical-offset="0" max-vertical-offset="1299">
+          <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
           <folding />
         </state>
       </provider>
