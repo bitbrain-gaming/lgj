@@ -12,9 +12,11 @@ import com.badlogic.gdx.scenes.scene2d.InputListener;
 import de.bitbrain.yolo.Assets;
 import de.bitbrain.yolo.YoloGame;
 import de.bitbrain.yolo.core.GameHandler;
+import de.bitbrain.yolo.core.GameObject;
 import de.bitbrain.yolo.core.GameState;
 import de.bitbrain.yolo.core.GameStateCallback;
 import de.bitbrain.yolo.graphics.ParallaxMap;
+import de.bitbrain.yolo.graphics.ParticleRenderer;
 import de.bitbrain.yolo.net.YoloServer;
 import de.bitbrain.yolo.ui.PlayerWidget;
 
@@ -27,6 +29,8 @@ public class IngameScreen extends AbstractScreen {
 	private ParallaxMap backgroundMap, fogMap1, fogMap2;
 
 	private final GameStateCallback gameStateCallback;
+	
+	private ParticleRenderer particleRenderer;
 	
 	private boolean init = false;
 
@@ -44,7 +48,7 @@ public class IngameScreen extends AbstractScreen {
 
 	@Override
 	protected void onShow() {
-
+		particleRenderer = new ParticleRenderer();
 		gameHandler = new GameHandler(gameState, camera, gameStateCallback);
 		backgroundMap = new ParallaxMap(Assets.TEX_SPACE, camera, 100f);
 		backgroundMap.setColor(new Color(0.2f, 0.3f, 0.4f, 1.0f));
@@ -72,6 +76,9 @@ public class IngameScreen extends AbstractScreen {
 			}
 		});
 		
+		GameObject s = gameState.getPlayer().getShip();
+		particleRenderer.applyParticleEffect(s, Assets.PRT_BLUE_FLAME, s.getSize().x / 2, s.getSize().y / 2);
+		
 		stage.addActor(new PlayerWidget(gameState.getPlayer()));
 	}
 
@@ -88,6 +95,7 @@ public class IngameScreen extends AbstractScreen {
 		backgroundMap.draw(batch);
 		fogMap2.draw(batch);
 		fogMap1.draw(batch);
+		particleRenderer.updateAndRender(delta, batch);
 		gameHandler.updateAndRender(delta, batch);
 	}
 
