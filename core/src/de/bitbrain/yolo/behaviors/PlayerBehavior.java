@@ -13,7 +13,7 @@ import de.bitbrain.yolo.util.Timer;
 
 public class PlayerBehavior implements Behavior {
 
-	private static final float ACCELERATION_FACTOR = 20.5f;
+	private static final float ACCELERATION_FACTOR = 10.5f;
 
 	private static final float SHOOT_INTERVAL = 0.1f;
 

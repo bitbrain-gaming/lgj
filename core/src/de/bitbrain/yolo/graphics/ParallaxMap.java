@@ -16,10 +16,19 @@ public class ParallaxMap {
 	
 	private float parallaxity;
 	
+	private float width, height;
+	
 	public ParallaxMap(String assetId, Camera camera, float parallaxity) {
 		this.camera = camera;
 		this.sprite = new Sprite(SharedAssetManager.get(assetId, Texture.class));
 		this.parallaxity = parallaxity;
+		this.width = sprite.getWidth();
+		this.height = sprite.getHeight();
+	}
+	
+	public void scale(float scale) {
+		this.width *= scale;
+		this.height *= scale;
 	}
 	
 	public void setColor(Color color) {
@@ -34,11 +43,11 @@ public class ParallaxMap {
 		int boundableX = (int) Math.floor(x);
 		int boundableY = (int) Math.floor(y);
 		for (float tmpX = getStartX(x) + boundableX; tmpX < width
-				+ sprite.getWidth() + boundableX; tmpX += sprite.getWidth()) {
+				+ this.width + boundableX; tmpX += this.width) {
 			for (float tmpY = getStartY(y) + boundableY; tmpY < height
-					+ sprite.getHeight() + boundableY; tmpY += sprite.getHeight()) {
+					+ this.height + boundableY; tmpY += this.height) {
 				sprite.setBounds(tmpX + getXClip(x), tmpY + getYClip(y),
-						sprite.getWidth(), sprite.getHeight());
+						this.width, this.height);
 				sprite.draw(batch);
 			}
 		}
@@ -55,7 +64,7 @@ public class ParallaxMap {
 	private int getStartX(float focusX) {
 		int startX = 0;
 		if (getTargetX(focusX) > 0) {
-			startX = Math.round(-sprite.getWidth());
+			startX = Math.round(-width);
 		}
 		return startX;
 	}
@@ -63,16 +72,16 @@ public class ParallaxMap {
 	private int getStartY(float focusY) {
 		int startY = 0;
 		if (getTargetY(focusY) > 0) {
-			startY = Math.round(-sprite.getHeight());
+			startY = Math.round(-height);
 		}
 		return startY;
 	}
 
 	private int getXClip(float focusX) {
-		return Math.round(getTargetX(focusX) % sprite.getWidth());
+		return Math.round(getTargetX(focusX) % width);
 	}
 
 	private int getYClip(float focusY) {
-		return Math.round(getTargetY(focusY) % sprite.getHeight());
+		return Math.round(getTargetY(focusY) % height);
 	}
 }
