@@ -70,7 +70,7 @@ public class PlayerBehavior implements Behavior {
 		gameHandler.applyBehavior(projectile, new ProjectileBehavior(
 				gameHandler));
 		projectile.setAngle(direction.angle());
-		projectile.setSize(12f, 12f);
+		projectile.setSize(22f, 22f);
 		final float speed = SHOOT_SPEED + ship.getVelocity().len();
 		direction.nor();
 		direction.setAngle(direction.angle() - 180f);
