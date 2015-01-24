@@ -4,11 +4,11 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import de.bitbrain.yolo.behaviors.Behavior;
-
 public class GameState implements Iterable<GameObject> {
 	
 	private Map<String, GameObject> objects;
+	
+	private Player player;
 	
 	public GameState() {
 		objects = new ConcurrentHashMap<String, GameObject>();
@@ -34,6 +34,14 @@ public class GameState implements Iterable<GameObject> {
 
 	public int size() {
 		return objects.size();
+	}
+
+	public Player getPlayer() {
+		return player;
+	}
+	
+	public void setPlayer(Player player) {
+		this.player = player;
 	}
 
 }

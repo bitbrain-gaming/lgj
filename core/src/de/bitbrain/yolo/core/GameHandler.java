@@ -24,8 +24,6 @@ public class GameHandler {
 
 	private GameObject playerShip;
 
-	private Player player;
-
 	private CameraTrackingBehavior cameraBehavior;
 
 	private Camera camera;
@@ -42,11 +40,6 @@ public class GameHandler {
 		this.renderer = new Renderer();
 		initGame();
 		cameraBehavior = new CameraTrackingBehavior(playerShip, camera);
-		respawn(player);
-	}
-
-	public Player getPlayer() {
-		return player;
 	}
 
 	public void updateAndRender(float delta, Batch batch) {
@@ -84,17 +77,16 @@ public class GameHandler {
 	private void initGame() {
 		playerShip = new GameObject();
 		playerShip.setSize(24f, 24f);
-		playerShip.setPosition(0, 0);
 		playerShip.setAngle(0f);
 		playerShip.setType(GameObjectType.PLAYER_1);
 		applyBehavior(playerShip, new BehaviourWrapper(new PlayerBehavior(
-				camera, this)) {
+				camera, this, gameStateCallback)) {
 			@Override
 			public void post(GameObject target) {
 				gameStateCallback.onMove(target);
 			}
 		});
 		state.addGameObject(playerShip);
-		player = new Player(playerShip, 100);
+		state.setPlayer(new Player(playerShip, 100));
 	}
 }

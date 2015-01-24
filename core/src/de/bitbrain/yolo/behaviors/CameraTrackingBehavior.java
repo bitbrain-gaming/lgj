@@ -35,7 +35,7 @@ public class CameraTrackingBehavior {
 	}
 
 	public void focus() {
-		camera.position.x = player.getPosition().x - camera.viewportWidth / 2f;
-		camera.position.y = player.getPosition().y - camera.viewportHeight / 2f;
+		camera.position.x = player.getPosition().x;
+		camera.position.y = player.getPosition().y;
 	}
 }

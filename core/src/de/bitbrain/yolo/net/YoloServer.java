@@ -46,13 +46,14 @@ public class YoloServer extends Listener implements Disposable, GameStateCallbac
             Events.Spawn response = (Events.Spawn)object;
             gameState.addGameObject(response.entity);
         }else if(object instanceof Events.Join){
-            //add
+            Events.Join response = (Events.Join)object;
+            gameState.addGameObject(response.newPlayer);
         }
     }
 
     @Override
     public void connected(Connection connection) {
-        server.sendToAllTCP(new Events.Join());
+        server.sendToAllTCP(new Events.Join(gameState.getPlayer().getShip()));
     }
 
     @Override

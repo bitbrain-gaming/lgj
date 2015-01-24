@@ -9,6 +9,7 @@ import com.badlogic.gdx.math.Vector2;
 import de.bitbrain.yolo.core.GameHandler;
 import de.bitbrain.yolo.core.GameObject;
 import de.bitbrain.yolo.core.GameObjectType;
+import de.bitbrain.yolo.core.GameStateCallback;
 import de.bitbrain.yolo.util.Timer;
 
 public class PlayerBehavior implements Behavior {
@@ -27,9 +28,12 @@ public class PlayerBehavior implements Behavior {
 
 	private Timer shootTimer = new Timer();
 
-	public PlayerBehavior(Camera camera, GameHandler handler) {
+	private GameStateCallback callback;
+
+	public PlayerBehavior(Camera camera, GameHandler handler, GameStateCallback callback) {
 		this.camera = camera;
 		this.gameHandler = handler;
+		this.callback = callback;
 	}
 
 	@Override
@@ -72,5 +76,6 @@ public class PlayerBehavior implements Behavior {
 		direction.setAngle(direction.angle() - 180f);
 		projectile.setVelocity(direction.x * speed, direction.y * speed);
 		gameHandler.addGameObject(projectile);
+		callback.onCreate(projectile);
 	}
 }

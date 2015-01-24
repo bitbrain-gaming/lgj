@@ -40,6 +40,10 @@ public class Player {
 		} else {
 			minShield -= damage;
 		}
+		return isDead();
+	}
+	
+	public boolean isDead() {
 		return minShield < 0;
 	}
 }
