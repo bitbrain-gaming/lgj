@@ -1,6 +1,7 @@
 package de.bitbrain.yolo.core;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 import com.badlogic.gdx.math.Vector2;
 
@@ -8,7 +9,7 @@ public class GameObject implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
-	private int id;
+	private String id = UUID.randomUUID().toString();
 	
 	private GameObjectType type = GameObjectType.UNDEFINED;
 
@@ -20,11 +21,11 @@ public class GameObject implements Serializable {
 
 	private Vector2 acceleration = new Vector2();
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 	
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

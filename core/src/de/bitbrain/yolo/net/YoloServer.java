@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * @author ksidpen
  */
-public class YoloServer extends Listener implements Disposable, GameStateCallback{
+public class YoloServer extends Listener implements Disposable{
 
     private final Server server;
     private final GameState game;
