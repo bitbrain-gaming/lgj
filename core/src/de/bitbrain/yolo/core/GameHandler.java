@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import de.bitbrain.yolo.behaviors.Behavior;
 import de.bitbrain.yolo.behaviors.CameraTrackingBehavior;
 import de.bitbrain.yolo.behaviors.PlayerBehavior;
+import de.bitbrain.yolo.graphics.Renderer;
 
 public class GameHandler {
 	
@@ -24,8 +25,11 @@ public class GameHandler {
 	
 	private CameraTrackingBehavior cameraBehavior;
 	
+	private Camera camera;
+	
 	public GameHandler(GameState state, Camera camera) {
 		this.state = state;
+		this.camera = camera;
 		physics = new Physics();
 		behaviors = new HashMap<GameObject, Behavior>();
 		this.renderer = new Renderer();
@@ -52,9 +56,9 @@ public class GameHandler {
 	private void initGame() {
 		player = new GameObject();
 		player.setSize(24f, 24f);
-		player.setPosition(250, 250);
-		player.setAngle(35f);
-		applyBehavior(player, new PlayerBehavior());
+		player.setPosition(0, 0);
+		player.setAngle(0f);
+		applyBehavior(player, new PlayerBehavior(camera));
 		state.addGameObject(player);
 	}
 }

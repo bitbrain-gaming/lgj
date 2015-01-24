@@ -1,4 +1,4 @@
-package de.bitbrain.yolo.core;
+package de.bitbrain.yolo.graphics;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 
 import de.bitbrain.yolo.Assets;
 import de.bitbrain.yolo.SharedAssetManager;
+import de.bitbrain.yolo.core.GameObject;
 
 public class Renderer {
 
