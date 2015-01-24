@@ -1,26 +1,26 @@
 package de.bitbrain.yolo.core;
 
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class GameState implements Iterable<GameObject> {
 	
 	private Map<Integer, GameObject> objects;
 	
 	public GameState() {
-		objects = new HashMap<Integer, GameObject>();
+		objects = new ConcurrentHashMap<Integer, GameObject>();
 	}
 	
 	public GameObject getGameObject(int id) {
 		return objects.get(id);
 	}
 
-	void addGameObject(GameObject gameObject) {
+	public void addGameObject(GameObject gameObject) {
 		objects.put(gameObject.getId(), gameObject);
 	}
 
-	void removeGameObject(GameObject gameObject) {
+	public void removeGameObject(GameObject gameObject) {
 		objects.remove(gameObject.getId());
 	}
 
