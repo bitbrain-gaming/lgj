@@ -15,8 +15,10 @@ public class GameObject implements Serializable {
 	private float angle;
 
 	private Vector2 position = new Vector2(), size = new Vector2();
+	
+	private Vector2 velocity = new Vector2();
 
-	private float velocity, acceleration;
+	private Vector2 acceleration = new Vector2();
 	
 	public int getId() {
 		return id;
@@ -52,20 +54,22 @@ public class GameObject implements Serializable {
 		this.size.y = height;
 	}
 
-	public float getVelocity() {
+	public Vector2 getVelocity() {
 		return velocity;
 	}
 
-	public void setVelocity(float velocity) {
-		this.velocity = velocity;
+	public void setVelocity(float x, float y) {
+		this.velocity.x = x;
+		this.velocity.y = y;
 	}
 
-	public float getAcceleration() {
+	public Vector2 getAcceleration() {
 		return acceleration;
 	}
 
-	public void setAcceleration(float acceleration) {
-		this.acceleration = acceleration;
+	public void setAcceleration(float aX, float aY) {
+		this.acceleration.x = aX;
+		this.acceleration.y = aY;
 	}
 	
 	public GameObjectType getType() {
