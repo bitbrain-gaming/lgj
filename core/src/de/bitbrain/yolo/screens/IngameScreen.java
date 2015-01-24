@@ -2,6 +2,7 @@ package de.bitbrain.yolo.screens;
 
 
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -22,7 +23,7 @@ public class IngameScreen extends AbstractScreen {
 	
 	private GameHandler gameHandler;
 	
-	private ParallaxMap backgroundMap;
+	private ParallaxMap backgroundMap, fogMap1, fogMap2;
 
 	private final GameStateCallback gameStateCallback;
 
@@ -40,9 +41,15 @@ public class IngameScreen extends AbstractScreen {
 
 	@Override
 	protected void onShow() {
-		backgroundMap = new ParallaxMap(Assets.TEX_SPACE, camera);
-
+		
 		gameHandler = new GameHandler(gameState, camera, gameStateCallback);
+		backgroundMap = new ParallaxMap(Assets.TEX_SPACE, camera, 100f);
+		backgroundMap.setColor(new Color(0.2f, 0.3f, 0.4f, 1.0f));
+		fogMap1 = new ParallaxMap(Assets.TEX_FOG, camera, 0.4f);
+		fogMap1.scale(5.2f);
+		fogMap2 = new ParallaxMap(Assets.TEX_FOG, camera, 2f);
+		fogMap2.scale(1.2f);
+
 		stage.addCaptureListener(new InputListener() {
 			@Override
 			public boolean keyDown(InputEvent event, int keycode) {
@@ -64,6 +71,8 @@ public class IngameScreen extends AbstractScreen {
 	@Override
 	protected void onDraw(Batch batch, float delta) {
 		backgroundMap.draw(batch);
+		fogMap2.draw(batch);
 		gameHandler.updateAndRender(delta, batch);
+		fogMap1.draw(batch);
 	}
 }

@@ -27,7 +27,7 @@ public class CameraTrackingBehavior {
 
 		float distance = velocity.len();
 		velocity.nor();
-		double speed = (5.0) * distance;
+		double speed = distance / 1.2f;
 
 		// Round it up to prevent camera shaking
 		camera.position.x = (float) (camera.position.x + (velocity.x * speed * delta));

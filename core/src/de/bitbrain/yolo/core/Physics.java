@@ -4,11 +4,11 @@ import com.badlogic.gdx.math.Vector2;
 
 public class Physics {
 
-	public static final float MIN_SPEED = 220f;
+	public static final float MIN_SPEED = 20f;
 
-	public static final float MAX_SPEED = 750f;
+	public static final float MAX_SPEED = 130f;
 
-	public static final float MAX_ACCEL = 35f;
+	public static final float MAX_ACCEL = 25f;
 
 	public void apply(GameObject gameObject, float delta) {
 

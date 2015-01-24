@@ -2,13 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e66d67eb-009d-4678-8c36-eee620d8d731" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/behaviors/BehaviourWrapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameHandler.java" afterPath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/android/assets/images/space-far.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/android/assets/images/space-middle.png" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/android/assets/images/space.jpg" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/Assets.java" afterPath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/Assets.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/behaviors/CameraTrackingBehavior.java" afterPath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/behaviors/CameraTrackingBehavior.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/screens/IngameScreen.java" afterPath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/screens/IngameScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/screens/LoadingScreen.java" afterPath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/screens/LoadingScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/screens/MenuScreen.java" afterPath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/screens/MenuScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloClient.java" afterPath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lgj.iws" afterPath="$PROJECT_DIR$/lgj.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/graphics/ParallaxMap.java" afterPath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/graphics/ParallaxMap.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/Physics.java" afterPath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/Physics.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/behaviors/PlayerBehavior.java" afterPath="$PROJECT_DIR$/core/src/de/bitbrain/yolo/behaviors/PlayerBehavior.java" />
     </list>
     <ignored path="lgj.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,8 +72,8 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <breakpoint_rules converted="true" />
     <ui_properties converted="true" />
+    <breakpoint_rules converted="true" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -84,12 +86,10 @@
           <file leaf-file-name="YoloClient.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloClient.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="282" max-vertical-offset="1290">
+                <state vertical-scroll-proportion="0.0" vertical-offset="705" max-vertical-offset="1260">
                   <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#1924#2050#0" expanded="true" />
-                    <element signature="e#2049#2050#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -98,7 +98,7 @@
           <file leaf-file-name="Listener.java" pinned="false" current-in-tab="false">
             <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.esotericsoftware/kryonet/2.22.0-RC1/8ee2b983164bf6b9d194004c84b11b7397079d32/kryonet-2.22.0-RC1-sources.jar!/com/esotericsoftware/kryonet/Listener.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2175">
+                <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="2175">
                   <caret line="14" column="45" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
                   <folding />
                 </state>
@@ -124,7 +124,7 @@
           <file leaf-file-name="MenuScreen.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/screens/MenuScreen.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="930">
+                <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="930">
                   <caret line="59" column="40" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
                   <folding>
                     <element signature="e#1085#1086#0" expanded="true" />
@@ -137,7 +137,7 @@
           <file leaf-file-name="BehaviourWrapper.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/behaviors/BehaviourWrapper.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
+                <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="435">
                   <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
                   <folding>
                     <element signature="e#244#245#0" expanded="true" />
@@ -178,12 +178,9 @@
           <file leaf-file-name="IngameScreen.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/screens/IngameScreen.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.54913294" vertical-offset="50" max-vertical-offset="930">
-                  <caret line="48" column="29" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
-                  <folding>
-                    <element signature="e#1246#1491#0" expanded="true" />
-                    <element signature="e#1490#1491#0" expanded="true" />
-                  </folding>
+                <state vertical-scroll-proportion="0.33538935" vertical-offset="0" max-vertical-offset="1297">
+                  <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -191,7 +188,7 @@
           <file leaf-file-name="ProjectileBehavior.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/behaviors/ProjectileBehavior.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
+                <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="495">
                   <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
                   <folding />
                 </state>
@@ -215,7 +212,7 @@
           <file leaf-file-name="KryoConfig.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/KryoConfig.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.3815029" vertical-offset="0" max-vertical-offset="865">
+                <state vertical-scroll-proportion="0.2544333" vertical-offset="0" max-vertical-offset="1297">
                   <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
                   <folding />
                 </state>
@@ -2367,9 +2364,9 @@
         <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/behaviors/BehaviourWrapper.java" />
         <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/core/GameHandler.java" />
         <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/screens/MenuScreen.java" />
-        <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/screens/IngameScreen.java" />
         <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/net/YoloClient.java" />
         <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/screens/LoadingScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/de/bitbrain/yolo/screens/IngameScreen.java" />
       </list>
     </option>
   </component>
@@ -2414,6 +2411,41 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lgj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lgj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lgj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lgj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lgj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -2520,41 +2552,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lgj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lgj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lgj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lgj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lgj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2712,6 +2709,19 @@
       </ExternalSystemSettings>
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -2738,19 +2748,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2876,12 +2873,10 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32981133" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931423" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11199365" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2890,12 +2885,14 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1477363" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32603773" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32603773" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931423" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32981133" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -2972,8 +2969,6 @@
           <caret line="14" column="53" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1924#2050#0" expanded="true" />
-            <element signature="e#2049#2050#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3046,8 +3041,6 @@
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1924#2050#0" expanded="true" />
-            <element signature="e#2049#2050#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3217,10 +3210,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1125">
           <caret line="83" column="16" selection-start-line="83" selection-start-column="16" selection-end-line="83" selection-end-column="16" />
-          <folding>
-            <element signature="e#698#699#0" expanded="true" />
-            <element signature="e#723#724#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3228,7 +3217,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2343" max-vertical-offset="17445">
           <caret line="198" column="64" selection-start-line="198" selection-start-column="64" selection-end-line="198" selection-end-column="64" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3268,7 +3256,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.57225436" vertical-offset="0" max-vertical-offset="865">
           <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3284,7 +3271,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13872832" vertical-offset="0" max-vertical-offset="865">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3300,7 +3286,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2601156" vertical-offset="0" max-vertical-offset="865">
           <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3351,8 +3336,6 @@
           <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1924#2050#0" expanded="true" />
-            <element signature="e#2049#2050#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3386,12 +3369,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/de/bitbrain/yolo/screens/IngameScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54913294" vertical-offset="50" max-vertical-offset="930">
-          <caret line="48" column="29" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
-          <folding>
-            <element signature="e#1246#1491#0" expanded="true" />
-            <element signature="e#1490#1491#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.33538935" vertical-offset="0" max-vertical-offset="1297">
+          <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
