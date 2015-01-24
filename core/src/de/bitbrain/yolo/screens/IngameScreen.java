@@ -23,7 +23,7 @@ public class IngameScreen extends AbstractScreen {
 	@Override
 	protected void onShow() {
 		gameState = new GameState();
-		gameHandler = new GameHandler(gameState);
+		gameHandler = new GameHandler(gameState, camera);
 		stage.addCaptureListener(new InputListener() {
 			@Override
 			public boolean keyDown(InputEvent event, int keycode) {

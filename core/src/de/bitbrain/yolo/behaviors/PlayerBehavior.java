@@ -3,7 +3,6 @@ package de.bitbrain.yolo.behaviors;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 
-import de.bitbrain.yolo.core.Behavior;
 import de.bitbrain.yolo.core.GameObject;
 
 public class PlayerBehavior implements Behavior {

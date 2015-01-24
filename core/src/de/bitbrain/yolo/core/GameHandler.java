@@ -3,8 +3,11 @@ package de.bitbrain.yolo.core;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.g2d.Batch;
 
+import de.bitbrain.yolo.behaviors.Behavior;
+import de.bitbrain.yolo.behaviors.CameraTrackingBehavior;
 import de.bitbrain.yolo.behaviors.PlayerBehavior;
 
 public class GameHandler {
@@ -17,12 +20,17 @@ public class GameHandler {
 	
 	private Map<GameObject, Behavior> behaviors;
 	
-	public GameHandler(GameState state) {
+	private GameObject player;
+	
+	private CameraTrackingBehavior cameraBehavior;
+	
+	public GameHandler(GameState state, Camera camera) {
 		this.state = state;
 		physics = new Physics();
 		behaviors = new HashMap<GameObject, Behavior>();
 		this.renderer = new Renderer();
 		initGame();
+		cameraBehavior = new CameraTrackingBehavior(player, camera);
 	}
 
 	public void updateAndRender(float delta, Batch batch) {
@@ -34,6 +42,7 @@ public class GameHandler {
 			physics.apply(object, delta);
 			renderer.render(object, batch);
 		}
+		cameraBehavior.update(delta);
 	}
 	
 	public void applyBehavior(GameObject object, Behavior behavior) {
@@ -41,7 +50,7 @@ public class GameHandler {
 	}
 	
 	private void initGame() {
-		GameObject player = new GameObject();
+		player = new GameObject();
 		player.setSize(24f, 24f);
 		player.setPosition(250, 250);
 		player.setAngle(35f);
