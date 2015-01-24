@@ -62,6 +62,10 @@ public class IngameScreen extends AbstractScreen {
 					game.setScreen(new MenuScreen(game));
 					return true;
 				}
+				if (keycode == Keys.F1) {
+					gameState.getPlayer().damage(1);
+					return true;
+				}
 				return super.keyDown(event, keycode);
 			}
 		});
