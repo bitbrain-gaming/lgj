@@ -37,7 +37,7 @@ public class GameHandler {
 		this.state = state;
 		this.camera = camera;
 		this.gameStateCallback = callback;
-		collisionDetector = new CollisionDetector();
+		collisionDetector = new CollisionDetector(state);
 		physics = new Physics();
 		behaviors = new HashMap<GameObject, Behavior>();
 		this.renderer = new Renderer();
