@@ -19,7 +19,9 @@ import de.bitbrain.yolo.net.YoloServer;
 import de.bitbrain.yolo.ui.PlayerWidget;
 
 public class IngameScreen extends AbstractScreen {
-	
+
+	private float frameCounter=0;
+
 	private final GameState gameState;
 	
 	private GameHandler gameHandler;
@@ -29,6 +31,7 @@ public class IngameScreen extends AbstractScreen {
 	private final GameStateCallback gameStateCallback;
 	
 	private boolean init = false;
+
 
 	IngameScreen(YoloGame game) throws IOException {
 		super(game);

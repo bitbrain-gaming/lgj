@@ -5,7 +5,12 @@ public final class Assets {
 	public static String DIR_PARTICLES = "particles/";
 	public static String DIR_FONT = "fonts/";
 	public static String DIR_IMAGES = "images/";
+
 	public static String DIR_SOUNDS = "sounds/";
+	public static String DIR_GIFS= "gifs/mute/";
+	public static String DIR_ANIMS= "gifs/special/";
+	public static String DIR_OVERLAYS= "overlays/";
+	public static String DIR_MUSIC= "overlays/";
 	
 	public static String FNT_REGULAR = DIR_FONT + "regular.fnt";
 	
@@ -16,6 +21,7 @@ public final class Assets {
 	public static String TEX_PATCH_FILL = DIR_IMAGES + "fill.9.png";
 	public static String TEX_SPACE = DIR_IMAGES + "space-far.png";
 	public static String TEX_FOG = DIR_IMAGES + "space-middle.png";
-	
+
+
 	public static String SND_CLICK = DIR_SOUNDS + "click.mp3";
 }

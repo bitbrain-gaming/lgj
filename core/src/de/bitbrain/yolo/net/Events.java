@@ -40,25 +40,6 @@ public class Events {
         }
     }
 
-    public static class Collision{
-
-        public GameObject entity1;
-        public GameObject entity2;
-
-        public Collision(){};
-        public Collision(GameObject entity1, GameObject entity2) {
-            this.entity1 = entity1;
-            this.entity2 = entity2;
-        }
-
-        @Override
-        public String toString() {
-            return "Collision{" +
-                    "entity1=" + entity1 +
-                    ", entity2=" + entity2 +
-                    '}';
-        }
-    }
     public static class Join {
         public GameObject newPlayer;
 
