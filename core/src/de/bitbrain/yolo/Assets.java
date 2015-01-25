@@ -25,6 +25,7 @@ public final class Assets {
 
 	public static String SND_CLICK = DIR_SOUNDS + "click.mp3";
 	public static String SND_SHOT = DIR_SOUNDS + "shot.mp3";
+	public static String SND_EXPLODE = DIR_SOUNDS + "explode.mp3";
 	
 	public static String PRT_BLUE_FLAME = DIR_PARTICLES + "blue-flame.p";
 	public static String PRT_EXPLOSION = DIR_PARTICLES + "explosion.p";

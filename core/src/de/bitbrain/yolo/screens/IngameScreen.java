@@ -18,10 +18,8 @@ import de.bitbrain.yolo.core.GameObjectType;
 import de.bitbrain.yolo.core.GameState;
 import de.bitbrain.yolo.core.GameState.GameStateListener;
 import de.bitbrain.yolo.core.GameStateCallback;
-import de.bitbrain.yolo.graphics.AnimationRenderer;
 import de.bitbrain.yolo.graphics.ParallaxMap;
 import de.bitbrain.yolo.graphics.ParticleRenderer;
-import de.bitbrain.yolo.graphics.shader.RainbowShader;
 import de.bitbrain.yolo.graphics.shader.ShadeArea;
 import de.bitbrain.yolo.graphics.shader.SimpleShaderManager;
 import de.bitbrain.yolo.net.YoloServer;
@@ -78,7 +76,11 @@ public class IngameScreen extends AbstractScreen implements ShadeArea {
 
 			@Override
 			public void onShipDestroyed(GameObject object) {
-
+				particleRenderer.applyParticleEffect(Assets.PRT_EXPLOSION, 
+						object.getPosition().x + object.getSize().x / 2f,
+						object.getPosition().y + object.getSize().y / 2f);
+				Sound explode = SharedAssetManager.get(Assets.SND_EXPLODE, Sound.class);
+				explode.play(1.0f - (float)Math.random() * 0.2f, 0.7f + (float)Math.random() * 0.5f, 1.0f);
 			}
 		});
 		gameHandler = new GameHandler(gameState, camera, gameStateCallback, tweenManager);
