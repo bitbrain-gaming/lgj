@@ -19,7 +19,7 @@ public interface GameStateCallback extends Disposable{
      */
     void onCreate(GameObject object);
 
-    void onGameOver();
+    void onGameOver(GameObject object);
 
     void onReady();
 }

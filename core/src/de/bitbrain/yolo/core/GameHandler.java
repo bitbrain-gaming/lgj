@@ -2,20 +2,26 @@ package de.bitbrain.yolo.core;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import aurelienribon.tweenengine.TweenManager;
 
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.g2d.Batch;
 
+import de.bitbrain.yolo.FXBattery;
 import de.bitbrain.yolo.behaviors.Behavior;
 import de.bitbrain.yolo.behaviors.BehaviourWrapper;
 import de.bitbrain.yolo.behaviors.CameraTrackingBehavior;
 import de.bitbrain.yolo.behaviors.PlayerBehavior;
+import de.bitbrain.yolo.graphics.AnimationRenderer;
+import de.bitbrain.yolo.graphics.CameraShaker;
 import de.bitbrain.yolo.graphics.RadarRenderer;
 import de.bitbrain.yolo.graphics.Renderer;
 
 public class GameHandler {
+
+	private Random random;
 
 	private GameState state;
 
@@ -34,11 +40,17 @@ public class GameHandler {
 	private GameStateCallback gameStateCallback;
 
 	private CollisionDetector collisionDetector;
+
+	private AnimationRenderer animationRenderer;
 	
-	private RadarRenderer radarRenderer;	
+	private RadarRenderer radarRenderer;
+
+	private TweenManager tweenManager;
 
 	public GameHandler(GameState state, Camera camera,
 			GameStateCallback callback, TweenManager tweenManager) {
+		this.tweenManager = new TweenManager();
+		this.random = new Random();
 		this.state = state;
 		this.camera = camera;
 		this.gameStateCallback = callback;
@@ -49,6 +61,7 @@ public class GameHandler {
 		initGame();
 		cameraBehavior = new CameraTrackingBehavior(playerShip, camera);
 		radarRenderer = new RadarRenderer();
+		animationRenderer = new AnimationRenderer(tweenManager, camera);
 	}
 
 	public void updateAndRender(float delta, Batch batch) {
@@ -62,15 +75,23 @@ public class GameHandler {
 			if (playerShip.equals(object)) {
 				GameObject target = collisionDetector.getCollision(object);
 				if (target != null && target.getType().equals(GameObjectType.PROJECTILE)) {
+
+					//TODO: CRAZY SHIZ
+					animationRenderer.addRandomAnimation();
+					FXBattery.getSound().play();
+					CameraShaker.shake(random.nextInt(5), camera, tweenManager);
+
 					state.getPlayer().damage(10);
 					if (state.getPlayer().isDead()) {
 						respawn(state.getPlayer());
 						// TODO INSERT CRAZY GIF HERE AND SOUND EFFECTS!!!
+
 					}
 				}
 			}
 			renderer.render(object, batch);
 			radarRenderer.render(object, playerShip, camera, batch);
+			animationRenderer.updateAndRender(batch);
 		}
 		cameraBehavior.update(delta);
 	}

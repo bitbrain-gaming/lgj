@@ -13,20 +13,26 @@ public class TweenableAnimation {
 
     private float ticks =0;
 
+    private float maxTicks;
+
     private int x,y, width, height;
 
-
-    public TweenableAnimation(Animation core ,int x, int y, int width, int height) {
+    public TweenableAnimation(Animation core ,int x, int y, int width, int height, int maxTicks) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
         this.core =core;
+        this.maxTicks = maxTicks;
     }
 
     public void render(Batch batch){
         ticks += Gdx.graphics.getDeltaTime();
         batch.draw(core.getKeyFrame(ticks, true),x, y, width, height);
+    }
+
+    public float getMaxTicks() {
+        return maxTicks;
     }
 
     public float getTicks() {

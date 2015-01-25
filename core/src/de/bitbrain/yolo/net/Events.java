@@ -56,7 +56,13 @@ public class Events {
     }
 
     public static class GameOver{
+
+        public GameObject entity;
+
         public GameOver(){};
+        public GameOver(GameObject entity){
+            this.entity = entity;
+        };
     }
 
 }

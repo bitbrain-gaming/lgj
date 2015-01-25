@@ -18,6 +18,7 @@ import de.bitbrain.yolo.core.GameObjectType;
 import de.bitbrain.yolo.core.GameState;
 import de.bitbrain.yolo.core.GameState.GameStateListener;
 import de.bitbrain.yolo.core.GameStateCallback;
+import de.bitbrain.yolo.graphics.AnimationRenderer;
 import de.bitbrain.yolo.graphics.ParallaxMap;
 import de.bitbrain.yolo.graphics.ParticleRenderer;
 import de.bitbrain.yolo.net.YoloServer;
@@ -34,6 +35,8 @@ public class IngameScreen extends AbstractScreen {
 	private final GameStateCallback gameStateCallback;
 
 	private ParticleRenderer particleRenderer;
+
+
 
 	private boolean init = false;
 
@@ -53,6 +56,7 @@ public class IngameScreen extends AbstractScreen {
 	@Override
 	protected void onShow() {
 		particleRenderer = new ParticleRenderer();
+
 		gameState.setListener(new GameStateListener() {
 			@Override
 			public void onAddGameObject(GameObject object) {
@@ -64,6 +68,11 @@ public class IngameScreen extends AbstractScreen {
 					Sound s = SharedAssetManager.get(Assets.SND_SHOT, Sound.class);
 					s.play(0.3f, (float) (Math.random() * 0.3f + 1.2f), 1.0f);
 				}
+			}
+
+			@Override
+			public void onShipDestroyed(GameObject object) {
+
 			}
 		});
 		gameHandler = new GameHandler(gameState, camera, gameStateCallback, tweenManager);
@@ -86,7 +95,7 @@ public class IngameScreen extends AbstractScreen {
 				if (keycode == Keys.F1) {
 					boolean destroyed = gameState.getPlayer().damage(1);
 					if (destroyed)
-						gameStateCallback.onGameOver();
+						gameStateCallback.onGameOver(gameState.getPlayer().getShip());
 
 					return true;
 				}
@@ -111,6 +120,7 @@ public class IngameScreen extends AbstractScreen {
 		fogMap1.draw(batch);
 		particleRenderer.updateAndRender(delta, batch);
 		gameHandler.updateAndRender(delta, batch);
+
 	}
 
 	@Override

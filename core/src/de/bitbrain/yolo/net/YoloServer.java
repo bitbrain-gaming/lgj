@@ -49,7 +49,8 @@ public class YoloServer extends Listener implements Disposable, GameStateCallbac
             Events.Join response = (Events.Join)object;
             gameState.addGameObject(response.newPlayer);
         }else if(object instanceof Events.GameOver){
-            gameState.setDidWin();
+            Events.GameOver response = (Events.GameOver)object;
+            gameState.onShipDestroyed(response.entity);
         }
     }
 
@@ -88,8 +89,8 @@ public class YoloServer extends Listener implements Disposable, GameStateCallbac
     }
 
     @Override
-    public void onGameOver() {
-        server.sendToAllTCP(new Events.GameOver());
+    public void onGameOver(GameObject object) {
+        server.sendToAllTCP(new Events.GameOver(object));
     }
 
     @Override

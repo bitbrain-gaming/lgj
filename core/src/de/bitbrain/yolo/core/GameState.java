@@ -5,13 +5,11 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class GameState implements Iterable<GameObject> {
-	
+
 	private Map<String, GameObject> objects;
 	
 	private Player player;
 
-	private boolean didWin = false;
-	
 	private GameStateListener listener;
 
 	public GameState() {
@@ -33,6 +31,9 @@ public class GameState implements Iterable<GameObject> {
 		}
 	}
 
+	public void onShipDestroyed(GameObject object){
+		if (listener != null) listener.onShipDestroyed(object);
+	}
 
 	public void removeGameObject(GameObject gameObject) {
 		objects.remove(gameObject.getId());
@@ -56,15 +57,8 @@ public class GameState implements Iterable<GameObject> {
 	}
 
 
-	public boolean didWin() {
-		return didWin;
-	}
-
-	public void setDidWin() {
-		this.didWin = true;
-	}
-	
 	public static interface GameStateListener {
 		void onAddGameObject(GameObject object);
+		void onShipDestroyed(GameObject object);
 	}
 }
