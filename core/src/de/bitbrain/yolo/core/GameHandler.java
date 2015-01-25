@@ -49,7 +49,7 @@ public class GameHandler {
 
 	public GameHandler(GameState state, Camera camera,
 			GameStateCallback callback, TweenManager tweenManager) {
-		this.tweenManager = new TweenManager();
+		this.tweenManager = tweenManager;
 		this.random = new Random();
 		this.state = state;
 		this.camera = camera;
@@ -72,21 +72,23 @@ public class GameHandler {
 				behavior.update(object, delta);
 			}
 			physics.apply(object, delta);
-			if (playerShip.equals(object)) {
+			if (object.getType().equals(GameObjectType.PLAYER)) {
 				GameObject target = collisionDetector.getCollision(object);
 
 				if (target != null
 						&& target.getType().equals(GameObjectType.PROJECTILE)) {
 					// TODO: CRAZY SHIZ
-					/*
-					 * animationRenderer.addRandomAnimation();
-					 * 
-					 * FXBattery.getSound().play();
-					 */
-					CameraShaker.shake(250, camera, tweenManager);
-
-					state.getPlayer().damage(10);
+					
+					//animationRenderer.addRandomAnimation();
+					
+					//FXBattery.getSound().play();
+					 
+					if (playerShip.equals(object)) {
+						CameraShaker.shake(10, camera, tweenManager);
+						state.getPlayer().damage(10);
+					}
 					if (state.getPlayer().isDead()) {
+						gameStateCallback.onGameOver(playerShip);
 						respawn(state.getPlayer());
 						// TODO INSERT CRAZY GIF HERE AND SOUND EFFECTS!!!
 

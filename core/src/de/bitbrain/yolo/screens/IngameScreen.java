@@ -85,7 +85,7 @@ public class IngameScreen extends AbstractScreen implements ShadeArea {
 		});
 		gameHandler = new GameHandler(gameState, camera, gameStateCallback, tweenManager);
 		backgroundMap = new ParallaxMap(Assets.TEX_SPACE, camera, 100f);
-		backgroundMap.setColor(new Color(0.2f, 0.3f, 0.4f, 1.0f));
+		backgroundMap.setColor(new Color(0.4f, 0.1f, 0.1f, 0.5f));
 		backgroundMap.scale(1.2f);
 		fogMap1 = new ParallaxMap(Assets.TEX_FOG, camera, 0.4f);
 		fogMap1.scale(5.2f);

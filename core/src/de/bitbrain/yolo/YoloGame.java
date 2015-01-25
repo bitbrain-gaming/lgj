@@ -19,7 +19,7 @@ public class YoloGame extends Game {
 
 	@Override
 	public void create() {
-		//FXBattery.init();
+		FXBattery.init();
 		load();
 		setScreen(new MenuScreen(this));
 	}

@@ -64,7 +64,7 @@ public class PlayerBehavior implements Behavior {
 	}
 
 	private void shoot(GameObject ship) {
-		final float DISTANCE = 50f;
+		final float DISTANCE = 80f;
 		GameObject projectile = new GameObject();
 		projectile.setType(GameObjectType.PROJECTILE);
 		gameHandler.applyBehavior(projectile, new ProjectileBehavior(
