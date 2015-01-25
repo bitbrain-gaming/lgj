@@ -1,6 +1,5 @@
 package de.bitbrain.yolo.screens;
 
-
 import java.io.IOException;
 
 import com.badlogic.gdx.Input.Keys;
@@ -13,7 +12,9 @@ import de.bitbrain.yolo.Assets;
 import de.bitbrain.yolo.YoloGame;
 import de.bitbrain.yolo.core.GameHandler;
 import de.bitbrain.yolo.core.GameObject;
+import de.bitbrain.yolo.core.GameObjectType;
 import de.bitbrain.yolo.core.GameState;
+import de.bitbrain.yolo.core.GameState.GameStateListener;
 import de.bitbrain.yolo.core.GameStateCallback;
 import de.bitbrain.yolo.graphics.ParallaxMap;
 import de.bitbrain.yolo.graphics.ParticleRenderer;
@@ -21,17 +22,17 @@ import de.bitbrain.yolo.net.YoloServer;
 import de.bitbrain.yolo.ui.PlayerWidget;
 
 public class IngameScreen extends AbstractScreen {
-	
+
 	private final GameState gameState;
-	
+
 	private GameHandler gameHandler;
-	
+
 	private ParallaxMap backgroundMap, fogMap1, fogMap2;
 
 	private final GameStateCallback gameStateCallback;
-	
+
 	private ParticleRenderer particleRenderer;
-	
+
 	private boolean init = false;
 
 	IngameScreen(YoloGame game) throws IOException {
@@ -49,6 +50,16 @@ public class IngameScreen extends AbstractScreen {
 	@Override
 	protected void onShow() {
 		particleRenderer = new ParticleRenderer();
+		gameState.setListener(new GameStateListener() {
+			@Override
+			public void onAddGameObject(GameObject object) {
+				if (object.getType().equals(GameObjectType.PLAYER)) {
+					particleRenderer.applyParticleEffect(object,
+							Assets.PRT_BLUE_FLAME, object.getSize().x / 2,
+							object.getSize().y / 2);
+				}
+			}
+		});
 		gameHandler = new GameHandler(gameState, camera, gameStateCallback);
 		backgroundMap = new ParallaxMap(Assets.TEX_SPACE, camera, 100f);
 		backgroundMap.setColor(new Color(0.2f, 0.3f, 0.4f, 1.0f));
@@ -68,17 +79,14 @@ public class IngameScreen extends AbstractScreen {
 				}
 				if (keycode == Keys.F1) {
 					boolean destroyed = gameState.getPlayer().damage(1);
-					if(destroyed)gameStateCallback.onGameOver();
+					if (destroyed)
+						gameStateCallback.onGameOver();
 
 					return true;
 				}
 				return super.keyDown(event, keycode);
 			}
 		});
-		
-		GameObject s = gameState.getPlayer().getShip();
-		particleRenderer.applyParticleEffect(s, Assets.PRT_BLUE_FLAME, s.getSize().x / 2, s.getSize().y / 2);
-		
 		stage.addActor(new PlayerWidget(gameState.getPlayer()));
 	}
 
