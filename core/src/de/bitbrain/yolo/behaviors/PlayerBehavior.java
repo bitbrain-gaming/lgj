@@ -64,10 +64,9 @@ public class PlayerBehavior implements Behavior {
 	}
 
 	private void shoot(GameObject ship) {
+		final float DISTANCE = 50f;
 		GameObject projectile = new GameObject();
 		projectile.setType(GameObjectType.PROJECTILE);
-		projectile.setPosition(ship.getPosition().x + ship.getSize().x / 2f,
-				ship.getPosition().y + ship.getSize().y / 2f);
 		gameHandler.applyBehavior(projectile, new ProjectileBehavior(
 				gameHandler));
 		projectile.setAngle(direction.angle());
@@ -76,6 +75,9 @@ public class PlayerBehavior implements Behavior {
 		direction.nor();
 		direction.setAngle(direction.angle() - 180f);
 		projectile.setVelocity(direction.x * speed, direction.y * speed);
+
+		projectile.setPosition(ship.getPosition().x + ship.getSize().x / 2f + direction.x * DISTANCE,
+				ship.getPosition().y + ship.getSize().y / 2f + direction.y * DISTANCE);
 
 		gameHandler.addGameObject(projectile);
 		callback.onCreate(projectile);
