@@ -3,12 +3,14 @@ package de.bitbrain.yolo.screens;
 import java.io.IOException;
 
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 
 import de.bitbrain.yolo.Assets;
+import de.bitbrain.yolo.SharedAssetManager;
 import de.bitbrain.yolo.YoloGame;
 import de.bitbrain.yolo.core.GameHandler;
 import de.bitbrain.yolo.core.GameObject;
@@ -58,6 +60,9 @@ public class IngameScreen extends AbstractScreen {
 					particleRenderer.applyParticleEffect(object,
 							Assets.PRT_BLUE_FLAME, object.getSize().x / 2,
 							object.getSize().y / 2);
+				} else if (object.getType().equals(GameObjectType.PROJECTILE)) {
+					Sound s = SharedAssetManager.get(Assets.SND_CLICK, Sound.class);
+					s.play(0.3f, (float) (Math.random() * 0.3f + 1.2f), 1.0f);
 				}
 			}
 		});

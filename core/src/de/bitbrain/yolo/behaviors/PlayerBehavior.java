@@ -3,12 +3,9 @@ package de.bitbrain.yolo.behaviors;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Buttons;
 import com.badlogic.gdx.Input.Keys;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.math.Vector2;
 
-import de.bitbrain.yolo.Assets;
-import de.bitbrain.yolo.SharedAssetManager;
 import de.bitbrain.yolo.core.GameHandler;
 import de.bitbrain.yolo.core.GameObject;
 import de.bitbrain.yolo.core.GameObjectType;
@@ -85,7 +82,5 @@ public class PlayerBehavior implements Behavior {
 
 		gameHandler.addGameObject(projectile);
 		callback.onCreate(projectile);
-		Sound s = SharedAssetManager.get(Assets.SND_SHOT, Sound.class);
-		s.play(0.3f, (float) (Math.random() * 0.3f + 1.2f), 1.0f);
 	}
 }
