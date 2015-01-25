@@ -42,7 +42,7 @@ public class GameHandler {
 	private CollisionDetector collisionDetector;
 
 	private AnimationRenderer animationRenderer;
-	
+
 	private RadarRenderer radarRenderer;
 
 	private TweenManager tweenManager;
@@ -74,12 +74,16 @@ public class GameHandler {
 			physics.apply(object, delta);
 			if (playerShip.equals(object)) {
 				GameObject target = collisionDetector.getCollision(object);
-				if (target != null && target.getType().equals(GameObjectType.PROJECTILE)) {
 
-					//TODO: CRAZY SHIZ
-//					animationRenderer.addRandomAnimation();
-//					FXBattery.getSound().play();
-//					CameraShaker.shake(250, camera, tweenManager);
+				if (target != null
+						&& target.getType().equals(GameObjectType.PROJECTILE)) {
+					// TODO: CRAZY SHIZ
+					/*
+					 * animationRenderer.addRandomAnimation();
+					 * 
+					 * FXBattery.getSound().play();
+					 */
+					CameraShaker.shake(250, camera, tweenManager);
 
 					state.getPlayer().damage(10);
 					if (state.getPlayer().isDead()) {
@@ -87,6 +91,8 @@ public class GameHandler {
 						// TODO INSERT CRAZY GIF HERE AND SOUND EFFECTS!!!
 
 					}
+					removeGameObject(target);
+
 				}
 			}
 			renderer.render(object, batch);
