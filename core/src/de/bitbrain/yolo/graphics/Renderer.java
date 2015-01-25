@@ -25,9 +25,6 @@ public class Renderer {
 		Sprite sprite = playerSprite;
 
 		switch (o.getType()) {
-		case PLAYER_2:
-			sprite.setColor(Color.RED);
-			break;
 		case PROJECTILE:
 			sprite = projectileSprite;
 			sprite.setColor(new Color(1f, 0f, 0f, 1f));

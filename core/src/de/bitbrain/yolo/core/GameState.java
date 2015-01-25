@@ -11,6 +11,8 @@ public class GameState implements Iterable<GameObject> {
 	private Player player;
 
 	private boolean didWin = false;
+	
+	private GameStateListener listener;
 
 	public GameState() {
 		objects = new ConcurrentHashMap<String, GameObject>();
@@ -19,9 +21,16 @@ public class GameState implements Iterable<GameObject> {
 	public GameObject getGameObject(String id) {
 		return objects.get(id);
 	}
+	
+	public void setListener(GameStateListener l) {
+		listener = l;
+	}
 
 	public void addGameObject(GameObject gameObject) {
 		objects.put(gameObject.getId(), gameObject);
+		if (listener != null) {
+			listener.onAddGameObject(gameObject);
+		}
 	}
 
 
@@ -53,5 +62,9 @@ public class GameState implements Iterable<GameObject> {
 
 	public void setDidWin() {
 		this.didWin = true;
+	}
+	
+	public static interface GameStateListener {
+		void onAddGameObject(GameObject object);
 	}
 }
