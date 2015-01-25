@@ -7,7 +7,7 @@ import de.bitbrain.yolo.util.Timer;
 
 public class ProjectileBehavior implements Behavior {
 	
-	public static final float LIFE = 2f;
+	public static final float LIFE = 0.8f;
 	
 	private GameHandler handler;
 	
