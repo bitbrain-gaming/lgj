@@ -1,7 +1,6 @@
 package de.bitbrain.yolo.net;
 
 import de.bitbrain.yolo.core.GameObject;
-import de.bitbrain.yolo.core.GameState;
 
 /**
  * @author ksidpen

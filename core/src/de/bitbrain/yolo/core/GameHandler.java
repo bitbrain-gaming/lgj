@@ -30,11 +30,14 @@ public class GameHandler {
 
 	private GameStateCallback gameStateCallback;
 
+	private CollisionDetector collisionDetector;
+
 	public GameHandler(GameState state, Camera camera,
 			GameStateCallback callback) {
 		this.state = state;
 		this.camera = camera;
 		this.gameStateCallback = callback;
+		collisionDetector = new CollisionDetector();
 		physics = new Physics();
 		behaviors = new HashMap<GameObject, Behavior>();
 		this.renderer = new Renderer();
@@ -43,12 +46,23 @@ public class GameHandler {
 	}
 
 	public void updateAndRender(float delta, Batch batch) {
+		GameObject playerShip = state.getPlayer().getShip();
 		for (GameObject object : state) {
 			Behavior behavior = behaviors.get(object);
 			if (behavior != null) {
 				behavior.update(object, delta);
 			}
 			physics.apply(object, delta);
+			if (playerShip.equals(object)) {
+				GameObject target = collisionDetector.getCollision(object);
+				if (target != null && target.getType().equals(GameObjectType.PROJECTILE)) {
+					state.getPlayer().damage(20);
+					if (state.getPlayer().isDead()) {
+						respawn(state.getPlayer());
+						// TODO INSERT CRAZY GIF HERE AND SOUND EFFECTS!!!
+					}
+				}
+			}
 			renderer.render(object, batch);
 		}
 		cameraBehavior.update(delta);
