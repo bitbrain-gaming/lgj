@@ -16,7 +16,7 @@ public class PlayerBehavior implements Behavior {
 
 	private static final float ACCELERATION_FACTOR = 15.5f;
 
-	private static final float SHOOT_INTERVAL = 0.15f;
+	private static final float SHOOT_INTERVAL = 0.25f;
 
 	private static final float SHOOT_SPEED = 1000f;
 
