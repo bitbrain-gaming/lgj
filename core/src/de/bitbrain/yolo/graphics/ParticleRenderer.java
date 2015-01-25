@@ -1,8 +1,10 @@
 package de.bitbrain.yolo.graphics;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.ParticleEffect;
@@ -13,7 +15,6 @@ import com.badlogic.gdx.graphics.g2d.ParticleEmitter.ScaledNumericValue;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
-import de.bitbrain.yolo.Assets;
 import de.bitbrain.yolo.SharedAssetManager;
 import de.bitbrain.yolo.core.GameObject;
 
@@ -28,8 +29,11 @@ public class ParticleRenderer {
 	private Map<PooledEffect, GameObject> objects;
 	
 	private Map<GameObject, Vector2> offsets;
+	
+	private List<PooledEffect> singleEffects;
 
 	public ParticleRenderer() {
+		singleEffects = new CopyOnWriteArrayList<PooledEffect>();
 		pools = new HashMap<String, ParticleEffectPool>();
 		effects = new HashMap<GameObject, PooledEffect>();
 		mapping = new HashMap<GameObject, String>();
@@ -52,8 +56,17 @@ public class ParticleRenderer {
 		}
 	}
 	
+	public void applyParticleEffect(String id, float x, float y) {
+		ensurePool(id);
+		ParticleEffectPool pool = pools.get(id);
+		PooledEffect effect = pool.obtain();
+		effect.setPosition(x, y);
+		singleEffects.add(effect);
+		
+	}
+	
 	public void applyParticleEffect(GameObject object, String id, float offsetX, float offsetY) {
-		pools.put(id, new ParticleEffectPool(SharedAssetManager.get(Assets.PRT_BLUE_FLAME, ParticleEffect.class), 10, 100));
+		ensurePool(id);
 		mapping.put(object, id);
 		offsets.put(object, new Vector2(offsetX, offsetY));
 		PooledEffect effect = getEffect(object);
@@ -77,6 +90,24 @@ public class ParticleRenderer {
 			
 			effectEntry.getKey().setPosition(x, y);
 			effectEntry.getKey().draw(batch, delta);
+		}
+		for (PooledEffect single : singleEffects) {
+			single.draw(batch, delta);
+			if (single.isComplete()) {
+				single.free();
+				singleEffects.remove(single);
+			}
+		}
+	}
+
+	public void remove(PooledEffect e) {
+		e.free();
+		objects.remove(e);
+	}
+	
+	private void ensurePool(String id) {
+		if (!pools.containsKey(id)) {
+			pools.put(id, new ParticleEffectPool(SharedAssetManager.get(id, ParticleEffect.class), 10, 100));
 		}
 	}
 }

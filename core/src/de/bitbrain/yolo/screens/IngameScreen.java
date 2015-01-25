@@ -66,7 +66,7 @@ public class IngameScreen extends AbstractScreen {
 							object.getSize().y / 2);
 				} else if (object.getType().equals(GameObjectType.PROJECTILE)) {
 					Sound s = SharedAssetManager.get(Assets.SND_SHOT, Sound.class);
-					s.play(0.3f, (float) (Math.random() * 0.3f + 1.2f), 1.0f);
+					s.play(0.1f, (float) (Math.random() * 0.5f + 1.2f), 1.0f);
 				}
 			}
 
@@ -92,13 +92,7 @@ public class IngameScreen extends AbstractScreen {
 					game.setScreen(new MenuScreen(game));
 					return true;
 				}
-				if (keycode == Keys.F1) {
-					boolean destroyed = gameState.getPlayer().damage(1);
-					if (destroyed)
-						gameStateCallback.onGameOver(gameState.getPlayer().getShip());
 
-					return true;
-				}
 				return super.keyDown(event, keycode);
 			}
 		});
