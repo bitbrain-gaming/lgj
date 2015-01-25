@@ -38,7 +38,6 @@ public class FXBattery {
             sounds.add(Gdx.audio.newSound(entry));
         }
 
-
     }
 
     public static Animation getGif(){

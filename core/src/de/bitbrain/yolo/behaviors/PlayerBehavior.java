@@ -6,6 +6,7 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.math.Vector2;
 
+import de.bitbrain.yolo.FXBattery;
 import de.bitbrain.yolo.core.GameHandler;
 import de.bitbrain.yolo.core.GameObject;
 import de.bitbrain.yolo.core.GameObjectType;
@@ -75,6 +76,7 @@ public class PlayerBehavior implements Behavior {
 		direction.nor();
 		direction.setAngle(direction.angle() - 180f);
 		projectile.setVelocity(direction.x * speed, direction.y * speed);
+
 		gameHandler.addGameObject(projectile);
 		callback.onCreate(projectile);
 	}
