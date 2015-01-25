@@ -5,8 +5,6 @@ import java.util.Map;
 
 import aurelienribon.tweenengine.TweenManager;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.g2d.Batch;
 
@@ -14,7 +12,7 @@ import de.bitbrain.yolo.behaviors.Behavior;
 import de.bitbrain.yolo.behaviors.BehaviourWrapper;
 import de.bitbrain.yolo.behaviors.CameraTrackingBehavior;
 import de.bitbrain.yolo.behaviors.PlayerBehavior;
-import de.bitbrain.yolo.graphics.CameraShaker;
+import de.bitbrain.yolo.graphics.RadarRenderer;
 import de.bitbrain.yolo.graphics.Renderer;
 
 public class GameHandler {
@@ -37,20 +35,20 @@ public class GameHandler {
 
 	private CollisionDetector collisionDetector;
 	
-	private TweenManager tweenManager;
+	private RadarRenderer radarRenderer;	
 
 	public GameHandler(GameState state, Camera camera,
 			GameStateCallback callback, TweenManager tweenManager) {
 		this.state = state;
 		this.camera = camera;
 		this.gameStateCallback = callback;
-		this.tweenManager = tweenManager;
 		collisionDetector = new CollisionDetector(state);
 		physics = new Physics();
 		behaviors = new HashMap<GameObject, Behavior>();
 		this.renderer = new Renderer();
 		initGame();
 		cameraBehavior = new CameraTrackingBehavior(playerShip, camera);
+		radarRenderer = new RadarRenderer();
 	}
 
 	public void updateAndRender(float delta, Batch batch) {
@@ -64,7 +62,7 @@ public class GameHandler {
 			if (playerShip.equals(object)) {
 				GameObject target = collisionDetector.getCollision(object);
 				if (target != null && target.getType().equals(GameObjectType.PROJECTILE)) {
-					state.getPlayer().damage(20);
+					state.getPlayer().damage(10);
 					if (state.getPlayer().isDead()) {
 						respawn(state.getPlayer());
 						// TODO INSERT CRAZY GIF HERE AND SOUND EFFECTS!!!
@@ -72,6 +70,7 @@ public class GameHandler {
 				}
 			}
 			renderer.render(object, batch);
+			radarRenderer.render(object, playerShip, camera, batch);
 		}
 		cameraBehavior.update(delta);
 	}

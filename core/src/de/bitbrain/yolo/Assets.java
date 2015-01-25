@@ -21,6 +21,7 @@ public final class Assets {
 	public static String TEX_PATCH_FILL = DIR_IMAGES + "fill.9.png";
 	public static String TEX_SPACE = DIR_IMAGES + "space-far.png";
 	public static String TEX_FOG = DIR_IMAGES + "space-middle.png";
+	public static String TEX_OPPONENT_BATCH = DIR_IMAGES + "opponent-batch.png";
 
 	public static String SND_CLICK = DIR_SOUNDS + "click.mp3";
 	public static String SND_SHOT = DIR_SOUNDS + "shot.mp3";

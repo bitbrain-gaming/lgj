@@ -61,7 +61,7 @@ public class IngameScreen extends AbstractScreen {
 							Assets.PRT_BLUE_FLAME, object.getSize().x / 2,
 							object.getSize().y / 2);
 				} else if (object.getType().equals(GameObjectType.PROJECTILE)) {
-					Sound s = SharedAssetManager.get(Assets.SND_CLICK, Sound.class);
+					Sound s = SharedAssetManager.get(Assets.SND_SHOT, Sound.class);
 					s.play(0.3f, (float) (Math.random() * 0.3f + 1.2f), 1.0f);
 				}
 			}
