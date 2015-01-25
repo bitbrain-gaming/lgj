@@ -66,7 +66,7 @@ public class IngameScreen extends AbstractScreen {
 				}
 			}
 		});
-		gameHandler = new GameHandler(gameState, camera, gameStateCallback);
+		gameHandler = new GameHandler(gameState, camera, gameStateCallback, tweenManager);
 		backgroundMap = new ParallaxMap(Assets.TEX_SPACE, camera, 100f);
 		backgroundMap.setColor(new Color(0.2f, 0.3f, 0.4f, 1.0f));
 		backgroundMap.scale(1.2f);

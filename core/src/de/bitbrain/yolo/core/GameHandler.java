@@ -3,6 +3,10 @@ package de.bitbrain.yolo.core;
 import java.util.HashMap;
 import java.util.Map;
 
+import aurelienribon.tweenengine.TweenManager;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.g2d.Batch;
 
@@ -10,6 +14,7 @@ import de.bitbrain.yolo.behaviors.Behavior;
 import de.bitbrain.yolo.behaviors.BehaviourWrapper;
 import de.bitbrain.yolo.behaviors.CameraTrackingBehavior;
 import de.bitbrain.yolo.behaviors.PlayerBehavior;
+import de.bitbrain.yolo.graphics.CameraShaker;
 import de.bitbrain.yolo.graphics.Renderer;
 
 public class GameHandler {
@@ -31,12 +36,15 @@ public class GameHandler {
 	private GameStateCallback gameStateCallback;
 
 	private CollisionDetector collisionDetector;
+	
+	private TweenManager tweenManager;
 
 	public GameHandler(GameState state, Camera camera,
-			GameStateCallback callback) {
+			GameStateCallback callback, TweenManager tweenManager) {
 		this.state = state;
 		this.camera = camera;
 		this.gameStateCallback = callback;
+		this.tweenManager = tweenManager;
 		collisionDetector = new CollisionDetector(state);
 		physics = new Physics();
 		behaviors = new HashMap<GameObject, Behavior>();
