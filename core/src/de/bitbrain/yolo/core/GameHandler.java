@@ -77,9 +77,9 @@ public class GameHandler {
 				if (target != null && target.getType().equals(GameObjectType.PROJECTILE)) {
 
 					//TODO: CRAZY SHIZ
-					animationRenderer.addRandomAnimation();
-					FXBattery.getSound().play();
-					CameraShaker.shake(250, camera, tweenManager);
+//					animationRenderer.addRandomAnimation();
+//					FXBattery.getSound().play();
+//					CameraShaker.shake(250, camera, tweenManager);
 
 					state.getPlayer().damage(10);
 					if (state.getPlayer().isDead()) {
