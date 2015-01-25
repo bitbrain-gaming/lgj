@@ -40,18 +40,18 @@ public class AnimationRenderer {
         int yMax = (int) camera.position.y;
 
         TweenableAnimation nextAnim =
-                new TweenableAnimation(FXBattery.getGif(), random.nextInt(xMax), random.nextInt(yMax), 250, 250, random.nextInt(500));
+                new TweenableAnimation(FXBattery.getGif(), xMax - random.nextInt(250), yMax - random.nextInt(250), 300, 300, random.nextInt(80));
 
 //        Tween.to(nextAnim,
 //                AnimationTween.X, nextAnim.getX())
-//                .target(random.nextInt(xMax))
+//                .target(xMax + - random.nextInt(250))
 //                .ease(TweenEquations.easeInCubic)
 //                .repeatYoyo(Tween.INFINITY, 0f)
 //                .start(manager);
 //        Tween.to(nextAnim,
 //                AnimationTween.Y, nextAnim.getY())
-//                .target(random.nextInt(yMax))
-//                .ease(TweenEquations.easeInCubic)
+//                .target(yMax - random.nextInt(250))
+//        .ease(TweenEquations.easeInCubic)
 //                .repeatYoyo(Tween.INFINITY, 0f)
 //                .start(manager);
 

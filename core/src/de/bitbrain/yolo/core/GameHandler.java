@@ -79,7 +79,7 @@ public class GameHandler {
 					//TODO: CRAZY SHIZ
 					animationRenderer.addRandomAnimation();
 					FXBattery.getSound().play();
-					CameraShaker.shake(random.nextInt(5), camera, tweenManager);
+					CameraShaker.shake(250, camera, tweenManager);
 
 					state.getPlayer().damage(10);
 					if (state.getPlayer().isDead()) {
