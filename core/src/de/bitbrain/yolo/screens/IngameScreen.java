@@ -21,10 +21,13 @@ import de.bitbrain.yolo.core.GameStateCallback;
 import de.bitbrain.yolo.graphics.AnimationRenderer;
 import de.bitbrain.yolo.graphics.ParallaxMap;
 import de.bitbrain.yolo.graphics.ParticleRenderer;
+import de.bitbrain.yolo.graphics.shader.RainbowShader;
+import de.bitbrain.yolo.graphics.shader.ShadeArea;
+import de.bitbrain.yolo.graphics.shader.SimpleShaderManager;
 import de.bitbrain.yolo.net.YoloServer;
 import de.bitbrain.yolo.ui.PlayerWidget;
 
-public class IngameScreen extends AbstractScreen {
+public class IngameScreen extends AbstractScreen implements ShadeArea {
 
 	private final GameState gameState;
 
@@ -35,6 +38,8 @@ public class IngameScreen extends AbstractScreen {
 	private final GameStateCallback gameStateCallback;
 
 	private ParticleRenderer particleRenderer;
+	
+	private SimpleShaderManager shaderManager;
 
 
 
@@ -55,6 +60,7 @@ public class IngameScreen extends AbstractScreen {
 
 	@Override
 	protected void onShow() {
+		shaderManager = new SimpleShaderManager();
 		particleRenderer = new ParticleRenderer();
 
 		gameState.setListener(new GameStateListener() {
@@ -97,6 +103,7 @@ public class IngameScreen extends AbstractScreen {
 			}
 		});
 		stage.addActor(new PlayerWidget(gameState.getPlayer()));
+		//shaderManager.add(this, new RainbowShader());
 	}
 
 	@Override
@@ -105,20 +112,28 @@ public class IngameScreen extends AbstractScreen {
 			gameHandler.respawn(gameState.getPlayer());
 			init = false;
 		}
+		shaderManager.resize(width, height);
 	}
 
 	@Override
-	protected void onDraw(Batch batch, float delta) {
-		backgroundMap.draw(batch);
-		fogMap2.draw(batch);
-		fogMap1.draw(batch);
-		particleRenderer.updateAndRender(delta, batch);
-		gameHandler.updateAndRender(delta, batch);
-
+	protected void onDraw(Batch batch, float delta) {		
+		batch.end();
+		shaderManager.updateAndRender(batch, delta);
+		batch.begin();
+		draw(batch, delta);
 	}
 
 	@Override
 	public void dispose() {
 		gameStateCallback.dispose();
+	}
+
+	@Override
+	public void draw(Batch batch, float delta) {
+		backgroundMap.draw(batch);
+		fogMap2.draw(batch);
+		fogMap1.draw(batch);
+		particleRenderer.updateAndRender(delta, batch);
+		gameHandler.updateAndRender(delta, batch);
 	}
 }
