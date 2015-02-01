@@ -64,13 +64,13 @@ public class PlayerBehavior implements Behavior {
 	}
 
 	private void shoot(GameObject ship) {
-		final float DISTANCE = 80f;
+		final float DISTANCE = 100f;
 		GameObject projectile = new GameObject();
 		projectile.setType(GameObjectType.PROJECTILE);
 		gameHandler.applyBehavior(projectile, new ProjectileBehavior(
 				gameHandler));
 		projectile.setAngle(direction.angle());
-		projectile.setSize(22f, 22f);
+		projectile.setSize(36f, 36f);
 		final float speed = SHOOT_SPEED + ship.getVelocity().len();
 		direction.nor();
 		direction.setAngle(direction.angle() - 180f);

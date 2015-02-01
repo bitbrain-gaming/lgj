@@ -104,14 +104,14 @@ public class GameHandler {
 
 	public void respawn(Player player) {
 		player.reset();
-		player.getShip().setPosition((float) Math.random() * 2000f,
-				(float) Math.random() * 2000f);
+		player.getShip().setPosition((float) Math.random() * 4000f,
+				(float) Math.random() * 4000f);
 		cameraBehavior.focus();
 	}
 
 	private void initGame() {
 		playerShip = new GameObject();
-		playerShip.setSize(24f, 24f);
+		playerShip.setSize(44f, 44f);
 		playerShip.setAngle(0f);
 		playerShip.setType(GameObjectType.PLAYER);
 		applyBehavior(playerShip, new BehaviourWrapper(new PlayerBehavior(

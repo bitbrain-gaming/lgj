@@ -9,8 +9,8 @@ public class DesktopLauncher {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.title = "YOLO! Wars";
 		config.useHDPI = true;
-		config.width = 800;
-		config.height = 600;
+		config.width = 1100;
+		config.height = 700;
 		new LwjglApplication(new YoloGame(), config);
 	}
 }
