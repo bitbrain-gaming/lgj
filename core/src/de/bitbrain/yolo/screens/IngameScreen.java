@@ -31,7 +31,7 @@ public class IngameScreen extends AbstractScreen implements ShadeArea {
 
 	private GameHandler gameHandler;
 
-	private ParallaxMap backgroundMap, fogMap1, fogMap2;
+	private ParallaxMap backgroundMap, stars1, stars2;
 
 	private final GameStateCallback gameStateCallback;
 
@@ -42,6 +42,8 @@ public class IngameScreen extends AbstractScreen implements ShadeArea {
 
 
 	private boolean init = false;
+
+	private ParallaxMap fog1;
 
 
 	IngameScreen(YoloGame game) throws IOException {
@@ -85,12 +87,16 @@ public class IngameScreen extends AbstractScreen implements ShadeArea {
 		});
 		gameHandler = new GameHandler(gameState, camera, gameStateCallback, tweenManager);
 		backgroundMap = new ParallaxMap(Assets.TEX_SPACE, camera, 100f);
-		backgroundMap.setColor(new Color(0.4f, 0.1f, 0.1f, 0.5f));
+		backgroundMap.setColor(new Color(0.8f, 0.6f, 0.6f, 1.f));
 		backgroundMap.scale(1.2f);
-		fogMap1 = new ParallaxMap(Assets.TEX_FOG, camera, 0.4f);
-		fogMap1.scale(5.2f);
-		fogMap2 = new ParallaxMap(Assets.TEX_FOG, camera, 2f);
-		fogMap2.scale(1.2f);
+		stars1 = new ParallaxMap(Assets.TEX_STARS, camera, 10.2f);
+		stars1.setColor(new Color(0.7f, 0.7f, 0.6f, 0.8f));
+		stars1.scale(1.9f);
+		stars2 = new ParallaxMap(Assets.TEX_STARS, camera, 20.5f);
+		stars2.setColor(new Color(0.7f, 0.7f, 0.6f, 0.8f));
+		stars2.scale(1.8f);
+		fog1 = new ParallaxMap(Assets.TEX_FOG, camera, 0.5f);
+		fog1.scale(4.8f);
 
 		stage.addCaptureListener(new InputListener() {
 			@Override
@@ -133,8 +139,9 @@ public class IngameScreen extends AbstractScreen implements ShadeArea {
 	@Override
 	public void draw(Batch batch, float delta) {
 		backgroundMap.draw(batch);
-		fogMap2.draw(batch);
-		fogMap1.draw(batch);
+		stars2.draw(batch);
+		stars1.draw(batch);
+		fog1.draw(batch);
 		particleRenderer.updateAndRender(delta, batch);
 		gameHandler.updateAndRender(delta, batch);
 	}
