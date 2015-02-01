@@ -65,6 +65,14 @@ a { color: lime; font-size: 16px; }
   background-size: cover;
 }
 
+.button {
+  text-decoration: none;
+  border: 5px solid lime;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #008625;
+}
+
 .glasses{
   height: 15px;
   width: 60px;
