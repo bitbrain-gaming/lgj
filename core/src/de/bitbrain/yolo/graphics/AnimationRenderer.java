@@ -1,21 +1,20 @@
 package de.bitbrain.yolo.graphics;
 
-import aurelienribon.tweenengine.Tween;
-import aurelienribon.tweenengine.TweenEquations;
-import aurelienribon.tweenengine.TweenManager;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Camera;
-import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.Batch;
-import de.bitbrain.yolo.FXBattery;
-import de.bitbrain.yolo.tweens.ActorTween;
-import de.bitbrain.yolo.tweens.AnimationTween;
-import de.bitbrain.yolo.ui.TweenableAnimation;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
+
+import aurelienribon.tweenengine.Tween;
+import aurelienribon.tweenengine.TweenEquations;
+import aurelienribon.tweenengine.TweenManager;
+
+import com.badlogic.gdx.graphics.Camera;
+import com.badlogic.gdx.graphics.g2d.Batch;
+
+import de.bitbrain.yolo.FXBattery;
+import de.bitbrain.yolo.tweens.AnimationTween;
+import de.bitbrain.yolo.ui.TweenableAnimation;
 
 /**
  * @author ksidpen
@@ -40,20 +39,20 @@ public class AnimationRenderer {
         int yMax = (int) camera.position.y;
 
         TweenableAnimation nextAnim =
-                new TweenableAnimation(FXBattery.getGif(), xMax - random.nextInt(250), yMax - random.nextInt(250), 300, 300, random.nextInt(80));
+                new TweenableAnimation(FXBattery.getGif(), xMax - random.nextInt(250), yMax - random.nextInt(250), 300, 300, random.nextInt(10));
 
-//        Tween.to(nextAnim,
-//                AnimationTween.X, nextAnim.getX())
-//                .target(xMax + - random.nextInt(250))
-//                .ease(TweenEquations.easeInCubic)
-//                .repeatYoyo(Tween.INFINITY, 0f)
-//                .start(manager);
-//        Tween.to(nextAnim,
-//                AnimationTween.Y, nextAnim.getY())
-//                .target(yMax - random.nextInt(250))
-//        .ease(TweenEquations.easeInCubic)
-//                .repeatYoyo(Tween.INFINITY, 0f)
-//                .start(manager);
+        Tween.to(nextAnim,
+                AnimationTween.X, nextAnim.getX())
+                .target(xMax + random.nextInt(250))
+                .ease(TweenEquations.easeInCubic)
+                .repeatYoyo(Tween.INFINITY, 0f)
+                .start(manager);
+        Tween.to(nextAnim,
+                AnimationTween.Y, nextAnim.getY())
+                .target(yMax + random.nextInt(250))
+        .ease(TweenEquations.easeInCubic)
+                .repeatYoyo(Tween.INFINITY, 0f)
+                .start(manager);
 
         anims.add(nextAnim);
     }

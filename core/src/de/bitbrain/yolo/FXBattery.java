@@ -1,62 +1,60 @@
 package de.bitbrain.yolo;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
-import de.bitbrain.yolo.loader.GifLoader;
-import de.bitbrain.yolo.ui.SoundGif;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import de.bitbrain.yolo.loader.GifLoader;
 
 /**
  * @author ksidpen
  */
 public class FXBattery {
 
-    private static Random rand = new Random();
+	private static Random rand = new Random();
 
-    private static List<Animation> gifs = new ArrayList<Animation>();
-    private static List<Sound> sounds = new ArrayList<Sound>();
-    private static List<Music> music = new ArrayList<Music>();
-    private static List<Drawable> overlays = new ArrayList<Drawable>();
-    private static List<SoundGif> soundGifs = new ArrayList<SoundGif>();
+	private static List<Animation> gifs = new ArrayList<Animation>();
+	private static List<Sound> sounds = new ArrayList<Sound>();
 
-    public static void init(){
+	public static void init() {
 
+		String[] gifFiles = { "burger", "dance", "dew", "dance", "frog", "snoop", "weed" };
 
-        for (FileHandle entry: Gdx.files.internal(Assets.DIR_GIFS).list()) {
-            gifs.add(GifLoader.loadGIFAnimation(Animation.PlayMode.LOOP, entry.read()));
-        }
+		for (String gif : gifFiles) {
+			FileHandle entry = Gdx.files.internal(Assets.DIR_GIFS + gif
+					+ ".gif");
+			gifs.add(GifLoader.loadGIFAnimation(Animation.PlayMode.LOOP,
+					entry.read()));
+		}
 
-        for (FileHandle entry: Gdx.files.internal(Assets.DIR_SOUNDS).list()) {
-            sounds.add(Gdx.audio.newSound(entry));
-        }
+		String[] soundFiles = { "omg", "watchasay", "weed", "skrillex", "wow", "triple" };
 
-    }
+		for (String sound : soundFiles) {
+			FileHandle entry = Gdx.files.internal(Assets.DIR_SOUNDS + sound
+					+ ".mp3");
+			sounds.add(Gdx.audio.newSound(entry));
+		}
 
-    public static Animation getGif(){
-        return gifs.get(rand.nextInt(gifs.size()));
-    }
+		if (gifs.isEmpty()) {
+			System.out.println("WARNING! NO GIFS WERE FOUND!");
+		}
 
-//    public static SoundGif getAnimation(){
-//        return null;
-//    }
+		if (sounds.isEmpty()) {
+			System.out.println("WARNING! NO SOUNDS WERE FOUND!");
+		}
 
-//    public static Music getMusic(){
-//        return null;
-//    }
-//
-    public static Sound getSound(){
-        return sounds.get(rand.nextInt(sounds.size()));
-    }
-//
-//    public static Drawable getOverlay(){
-//        return null;
-//    }
+	}
+
+	public static Animation getGif() {
+		return gifs.get(rand.nextInt(gifs.size()));
+	}
+
+	public static Sound getSound() {
+		return sounds.get(rand.nextInt(sounds.size()));
+	}
 }

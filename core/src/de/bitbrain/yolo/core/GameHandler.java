@@ -77,12 +77,6 @@ public class GameHandler {
 
 				if (target != null
 						&& target.getType().equals(GameObjectType.PROJECTILE)) {
-					// TODO: CRAZY SHIZ
-					
-					//animationRenderer.addRandomAnimation();
-					
-					//FXBattery.getSound().play();
-					 
 					if (playerShip.equals(object)) {
 						CameraShaker.shake(10, camera, tweenManager);
 						state.getPlayer().damage(10);
@@ -90,7 +84,8 @@ public class GameHandler {
 					if (state.getPlayer().isDead()) {
 						gameStateCallback.onGameOver(playerShip);
 						respawn(state.getPlayer());
-						// TODO INSERT CRAZY GIF HERE AND SOUND EFFECTS!!!
+						animationRenderer.addRandomAnimation();					
+						FXBattery.getSound().play(1.0f, (float) (0.6f + Math.random() * 0.5f), 1.0f);
 
 					}
 					removeGameObject(target);

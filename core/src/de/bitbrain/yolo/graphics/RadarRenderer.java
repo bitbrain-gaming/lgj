@@ -14,8 +14,6 @@ import de.bitbrain.yolo.core.GameObjectType;
 
 public class RadarRenderer {
 	
-	public static final float RADIUS = 350f;
-	
 	private Vector2 distance = new Vector2();
 	
 	private Sprite sprite;
@@ -26,6 +24,7 @@ public class RadarRenderer {
 	}
 
 	public void render(GameObject target, GameObject player, Camera camera, Batch batch) {
+		final float RADIUS = 200f;
 		if (target.getType().equals(GameObjectType.PLAYER) && player != target) {
 			distance.x = target.getPosition().x - (camera.position.x);
 			distance.y = target.getPosition().y - (camera.position.y);
