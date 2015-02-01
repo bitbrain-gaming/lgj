@@ -22,6 +22,9 @@ public class GameState implements Iterable<GameObject> {
 	
 	public void setListener(GameStateListener l) {
 		listener = l;
+		for (GameObject o : this) {
+			l.onAddGameObject(o);
+		}
 	}
 
 	public void addGameObject(GameObject gameObject) {

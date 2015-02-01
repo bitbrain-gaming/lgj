@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 
 import de.bitbrain.yolo.Assets;
+import de.bitbrain.yolo.FXBattery;
 import de.bitbrain.yolo.SharedAssetManager;
 import de.bitbrain.yolo.YoloGame;
 import de.bitbrain.yolo.core.GameHandler;
@@ -18,6 +19,7 @@ import de.bitbrain.yolo.core.GameObjectType;
 import de.bitbrain.yolo.core.GameState;
 import de.bitbrain.yolo.core.GameState.GameStateListener;
 import de.bitbrain.yolo.core.GameStateCallback;
+import de.bitbrain.yolo.graphics.AnimationRenderer;
 import de.bitbrain.yolo.graphics.ParallaxMap;
 import de.bitbrain.yolo.graphics.ParticleRenderer;
 import de.bitbrain.yolo.graphics.shader.ShadeArea;
@@ -36,15 +38,46 @@ public class IngameScreen extends AbstractScreen implements ShadeArea {
 	private final GameStateCallback gameStateCallback;
 
 	private ParticleRenderer particleRenderer;
-	
+
 	private SimpleShaderManager shaderManager;
-
-
 
 	private boolean init = false;
 
 	private ParallaxMap fog1;
 
+	private AnimationRenderer animationRenderer;
+	
+	private GameStateListener l = new GameStateListener() {
+		@Override
+		public void onAddGameObject(GameObject object) {
+			if (object.getType().equals(GameObjectType.PLAYER)) {
+				particleRenderer.applyParticleEffect(object,
+						Assets.PRT_BLUE_FLAME, object.getSize().x / 2,
+						object.getSize().y / 2);
+			} else if (object.getType().equals(GameObjectType.PROJECTILE)) {
+				Sound s = SharedAssetManager.get(Assets.SND_SHOT,
+						Sound.class);
+				s.play(0.1f, (float) (Math.random() * 0.5f + 1.2f), 1.0f);
+			}
+		}
+
+		@Override
+		public void onShipDestroyed(GameObject object) {
+			particleRenderer.applyParticleEffect(Assets.PRT_EXPLOSION,
+					object.getPosition().x + object.getSize().x / 2f,
+					object.getPosition().y + object.getSize().y / 2f);
+			Sound explode = SharedAssetManager.get(Assets.SND_EXPLODE,
+					Sound.class);
+			explode.play(1.0f - (float) Math.random() * 0.2f,
+					0.7f + (float) Math.random() * 0.5f, 1.0f);
+
+			if (!object.equals(gameState.getPlayer().getShip())) {
+				animationRenderer.addRandomAnimation();
+				FXBattery.getSound().play(1.0f,
+						(float) (0.6f + Math.random() * 0.5f), 1.0f);
+			}
+		}
+	};
 
 	IngameScreen(YoloGame game) throws IOException {
 		super(game);
@@ -62,30 +95,10 @@ public class IngameScreen extends AbstractScreen implements ShadeArea {
 	protected void onShow() {
 		shaderManager = new SimpleShaderManager();
 		particleRenderer = new ParticleRenderer();
-
-		gameState.setListener(new GameStateListener() {
-			@Override
-			public void onAddGameObject(GameObject object) {
-				if (object.getType().equals(GameObjectType.PLAYER)) {
-					particleRenderer.applyParticleEffect(object,
-							Assets.PRT_BLUE_FLAME, object.getSize().x / 2,
-							object.getSize().y / 2);
-				} else if (object.getType().equals(GameObjectType.PROJECTILE)) {
-					Sound s = SharedAssetManager.get(Assets.SND_SHOT, Sound.class);
-					s.play(0.1f, (float) (Math.random() * 0.5f + 1.2f), 1.0f);
-				}
-			}
-
-			@Override
-			public void onShipDestroyed(GameObject object) {
-				particleRenderer.applyParticleEffect(Assets.PRT_EXPLOSION, 
-						object.getPosition().x + object.getSize().x / 2f,
-						object.getPosition().y + object.getSize().y / 2f);
-				Sound explode = SharedAssetManager.get(Assets.SND_EXPLODE, Sound.class);
-				explode.play(1.0f - (float)Math.random() * 0.2f, 0.7f + (float)Math.random() * 0.5f, 1.0f);
-			}
-		});
-		gameHandler = new GameHandler(gameState, camera, gameStateCallback, tweenManager);
+		animationRenderer = new AnimationRenderer(tweenManager, camera);
+		gameState.setListener(l);
+		gameHandler = new GameHandler(gameState, camera, gameStateCallback,
+				tweenManager);
 		backgroundMap = new ParallaxMap(Assets.TEX_SPACE, camera, 100f);
 		backgroundMap.setColor(new Color(0.8f, 0.6f, 0.6f, 1.f));
 		backgroundMap.scale(1.2f);
@@ -111,7 +124,7 @@ public class IngameScreen extends AbstractScreen implements ShadeArea {
 			}
 		});
 		stage.addActor(new PlayerWidget(gameState.getPlayer()));
-		//shaderManager.add(this, new RainbowShader());
+		// shaderManager.add(this, new RainbowShader());
 	}
 
 	@Override
@@ -124,7 +137,7 @@ public class IngameScreen extends AbstractScreen implements ShadeArea {
 	}
 
 	@Override
-	protected void onDraw(Batch batch, float delta) {		
+	protected void onDraw(Batch batch, float delta) {
 		batch.end();
 		shaderManager.updateAndRender(batch, delta);
 		batch.begin();
@@ -144,5 +157,6 @@ public class IngameScreen extends AbstractScreen implements ShadeArea {
 		fog1.draw(batch);
 		particleRenderer.updateAndRender(delta, batch);
 		gameHandler.updateAndRender(delta, batch);
+		animationRenderer.updateAndRender(batch);
 	}
 }

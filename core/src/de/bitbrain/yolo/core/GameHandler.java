@@ -9,12 +9,10 @@ import aurelienribon.tweenengine.TweenManager;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.g2d.Batch;
 
-import de.bitbrain.yolo.FXBattery;
 import de.bitbrain.yolo.behaviors.Behavior;
 import de.bitbrain.yolo.behaviors.BehaviourWrapper;
 import de.bitbrain.yolo.behaviors.CameraTrackingBehavior;
 import de.bitbrain.yolo.behaviors.PlayerBehavior;
-import de.bitbrain.yolo.graphics.AnimationRenderer;
 import de.bitbrain.yolo.graphics.CameraShaker;
 import de.bitbrain.yolo.graphics.RadarRenderer;
 import de.bitbrain.yolo.graphics.Renderer;
@@ -41,8 +39,6 @@ public class GameHandler {
 
 	private CollisionDetector collisionDetector;
 
-	private AnimationRenderer animationRenderer;
-
 	private RadarRenderer radarRenderer;
 
 	private TweenManager tweenManager;
@@ -61,7 +57,6 @@ public class GameHandler {
 		initGame();
 		cameraBehavior = new CameraTrackingBehavior(playerShip, camera);
 		radarRenderer = new RadarRenderer();
-		animationRenderer = new AnimationRenderer(tweenManager, camera);
 	}
 
 	public void updateAndRender(float delta, Batch batch) {
@@ -79,22 +74,17 @@ public class GameHandler {
 						&& target.getType().equals(GameObjectType.PROJECTILE)) {
 					if (playerShip.equals(object)) {
 						CameraShaker.shake(10, camera, tweenManager);
-						state.getPlayer().damage(10);
+						state.getPlayer().damage(25);
 					}
 					if (state.getPlayer().isDead()) {
 						gameStateCallback.onGameOver(playerShip);
 						respawn(state.getPlayer());
-						animationRenderer.addRandomAnimation();					
-						FXBattery.getSound().play(1.0f, (float) (0.6f + Math.random() * 0.5f), 1.0f);
-
 					}
 					removeGameObject(target);
-
 				}
 			}
 			renderer.render(object, batch);
 			radarRenderer.render(object, playerShip, camera, batch);
-			animationRenderer.updateAndRender(batch);
 		}
 		cameraBehavior.update(delta);
 	}
@@ -114,8 +104,8 @@ public class GameHandler {
 
 	public void respawn(Player player) {
 		player.reset();
-		player.getShip().setPosition((float) Math.random() * 3000f,
-				(float) Math.random() * 3000f);
+		player.getShip().setPosition((float) Math.random() * 2000f,
+				(float) Math.random() * 2000f);
 		cameraBehavior.focus();
 	}
 
