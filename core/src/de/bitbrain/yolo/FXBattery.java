@@ -23,7 +23,7 @@ public class FXBattery {
 
 	public static void init() {
 
-		String[] gifFiles = { "burger", "dance", "dew", "dance", "frog", "snoop", "weed" };
+		String[] gifFiles = { "humping", "kid", "burger", "dance", "dew", "dance", "frog", "snoop", "weed" };
 
 		for (String gif : gifFiles) {
 			FileHandle entry = Gdx.files.internal(Assets.DIR_GIFS + gif
@@ -32,7 +32,7 @@ public class FXBattery {
 					entry.read()));
 		}
 
-		String[] soundFiles = { "omg", "watchasay", "weed", "skrillex", "wow", "triple" };
+		String[] soundFiles = { "AIRPORN", "noscoped", "SPOOKY", "omg", "watchasay", "weed", "skrillex", "wow", "triple" };
 
 		for (String sound : soundFiles) {
 			FileHandle entry = Gdx.files.internal(Assets.DIR_SOUNDS + sound
