@@ -42,13 +42,13 @@ public class AnimationRenderer {
                 new TweenableAnimation(FXBattery.getGif(), xMax - random.nextInt(250), yMax - random.nextInt(250), 300, 300, 5 + random.nextInt(10));
 
         Tween.to(nextAnim,
-                AnimationTween.X, nextAnim.getX())
+                AnimationTween.X, 2f)
                 .target(xMax + random.nextInt(350))
                 .ease(TweenEquations.easeInCubic)
                 .repeatYoyo(Tween.INFINITY, 0f)
                 .start(manager);
         Tween.to(nextAnim,
-                AnimationTween.Y, nextAnim.getY())
+                AnimationTween.Y, 2f)
                 .target(yMax + random.nextInt(350))
         .ease(TweenEquations.easeInCubic)
                 .repeatYoyo(Tween.INFINITY, 0f)

@@ -3,13 +3,14 @@ package de.bitbrain.yolo.tweens;
 import aurelienribon.tweenengine.TweenAccessor;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 
 public class ActorTween implements TweenAccessor<Actor> {
 
 	public static final int ALPHA = 1;
 
 	public static final int POPUP = 2;
-	
+
 	public static final int SCALE = 3;
 
 	@Override
@@ -42,8 +43,12 @@ public class ActorTween implements TweenAccessor<Actor> {
 			target.setPosition(target.getX(), newValues[0]);
 			break;
 		case SCALE:
+			if (target instanceof Label) {
+				((Label) target).setFontScale(newValues[0]);
+			}
 			target.setScaleX(newValues[0]);
 			target.setScaleY(newValues[1]);
+
 			break;
 		}
 	}

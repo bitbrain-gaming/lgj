@@ -20,6 +20,7 @@ import de.bitbrain.yolo.core.GameState;
 import de.bitbrain.yolo.core.GameState.GameStateListener;
 import de.bitbrain.yolo.core.GameStateCallback;
 import de.bitbrain.yolo.graphics.AnimationRenderer;
+import de.bitbrain.yolo.graphics.FontAnimator;
 import de.bitbrain.yolo.graphics.ParallaxMap;
 import de.bitbrain.yolo.graphics.ParticleRenderer;
 import de.bitbrain.yolo.graphics.shader.ShadeArea;
@@ -46,6 +47,8 @@ public class IngameScreen extends AbstractScreen implements ShadeArea {
 	private ParallaxMap fog1;
 
 	private AnimationRenderer animationRenderer;
+	
+	private FontAnimator fontAnimator;
 	
 	private GameStateListener l = new GameStateListener() {
 		@Override
@@ -75,6 +78,7 @@ public class IngameScreen extends AbstractScreen implements ShadeArea {
 				animationRenderer.addRandomAnimation();
 				FXBattery.getSound().play(1.0f,
 						(float) (0.6f + Math.random() * 0.5f), 1.0f);
+				fontAnimator.animate("KILL, BITCH!");
 			}
 		}
 	};
@@ -110,7 +114,7 @@ public class IngameScreen extends AbstractScreen implements ShadeArea {
 		stars2.scale(1.8f);
 		fog1 = new ParallaxMap(Assets.TEX_FOG, camera, 0.5f);
 		fog1.scale(4.8f);
-
+		fontAnimator = new FontAnimator(tweenManager, stage);
 		stage.addCaptureListener(new InputListener() {
 			@Override
 			public boolean keyDown(InputEvent event, int keycode) {
@@ -119,7 +123,6 @@ public class IngameScreen extends AbstractScreen implements ShadeArea {
 					game.setScreen(new MenuScreen(game));
 					return true;
 				}
-
 				return super.keyDown(event, keycode);
 			}
 		});
