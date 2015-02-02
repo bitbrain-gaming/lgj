@@ -1,5 +1,6 @@
 package de.bitbrain.yolo.core;
 
+import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -9,13 +10,13 @@ import aurelienribon.tweenengine.TweenManager;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.g2d.Batch;
 
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import de.bitbrain.yolo.FXBattery;
 import de.bitbrain.yolo.behaviors.Behavior;
 import de.bitbrain.yolo.behaviors.BehaviourWrapper;
 import de.bitbrain.yolo.behaviors.CameraTrackingBehavior;
 import de.bitbrain.yolo.behaviors.PlayerBehavior;
-import de.bitbrain.yolo.graphics.CameraShaker;
-import de.bitbrain.yolo.graphics.RadarRenderer;
-import de.bitbrain.yolo.graphics.Renderer;
+import de.bitbrain.yolo.graphics.*;
 
 public class GameHandler {
 
@@ -43,11 +44,16 @@ public class GameHandler {
 
 	private TweenManager tweenManager;
 
+	private AnimationRenderer animationRenderer;
+
+	private FontAnimator fontAnimator;
+
 	public GameHandler(GameState state, Camera camera,
-			GameStateCallback callback, TweenManager tweenManager) {
+			GameStateCallback callback, TweenManager tweenManager, Stage stage) {
 		this.tweenManager = tweenManager;
 		this.random = new Random();
 		this.state = state;
+		this.fontAnimator = new FontAnimator(tweenManager,stage);
 		this.camera = camera;
 		this.gameStateCallback = callback;
 		collisionDetector = new CollisionDetector(state);
@@ -57,6 +63,7 @@ public class GameHandler {
 		initGame();
 		cameraBehavior = new CameraTrackingBehavior(playerShip, camera);
 		radarRenderer = new RadarRenderer();
+		this.animationRenderer =new AnimationRenderer(tweenManager,stage);
 	}
 
 	public void updateAndRender(float delta, Batch batch) {
@@ -67,16 +74,30 @@ public class GameHandler {
 				behavior.update(object, delta);
 			}
 			physics.apply(object, delta);
+
 			if (object.getType().equals(GameObjectType.PLAYER)) {
 				GameObject target = collisionDetector.getCollision(object);
 
 				if (target != null
 						&& target.getType().equals(GameObjectType.PROJECTILE)) {
 					if (playerShip.equals(object)) {
-						CameraShaker.shake(10, camera, tweenManager);
+
+						CameraShaker.shake(90, camera, tweenManager);
 						state.getPlayer().damage(25);
+						animationRenderer.playRandomAnimation();
+						FXBattery.getSound().play();
+						fontAnimator.animateRandomString();
+
 					}
 					if (state.getPlayer().isDead()) {
+
+						for (int i = 0; i < 10; i++) {
+							animationRenderer.playRandomAnimation();
+							FXBattery.getSound().play();
+						}
+						animationRenderer.playRandomSoundAnimation();
+						fontAnimator.animateRandomString();
+
 						gameStateCallback.onGameOver(playerShip);
 						respawn(state.getPlayer());
 					}

@@ -1,72 +1,115 @@
 package de.bitbrain.yolo.graphics;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
-
-import aurelienribon.tweenengine.Tween;
-import aurelienribon.tweenengine.TweenEquations;
-import aurelienribon.tweenengine.TweenManager;
-
-import com.badlogic.gdx.graphics.Camera;
-import com.badlogic.gdx.graphics.g2d.Batch;
-
+import aurelienribon.tweenengine.*;
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import de.bitbrain.yolo.FXBattery;
-import de.bitbrain.yolo.tweens.AnimationTween;
+import de.bitbrain.yolo.tweens.ActorTween;
+import de.bitbrain.yolo.ui.SoundGif;
 import de.bitbrain.yolo.ui.TweenableAnimation;
+
+import java.util.Random;
 
 /**
  * @author ksidpen
  */
 public class AnimationRenderer {
 
-    private TweenManager manager;
+    private  Random random = new Random();
 
-    private List<TweenableAnimation> anims = new ArrayList<TweenableAnimation>();
+    private Stage stage;
 
-    private Random random = new Random();
+    private TweenManager tweenManager;
 
-    private Camera camera;
 
-    public AnimationRenderer(TweenManager manager,Camera camera) {
-        this.manager = manager;
-        this.camera = camera;
+    public AnimationRenderer(TweenManager manager, Stage stage) {
+        this.tweenManager = manager;
+        this.stage = stage;
     }
 
-    public void addRandomAnimation(){
-        int xMax = (int) camera.position.x;
-        int yMax = (int) camera.position.y;
+    public void playRandomAnimation(){
+        final TweenableAnimation animation = new TweenableAnimation(FXBattery.getGif());
 
-        TweenableAnimation nextAnim =
-                new TweenableAnimation(FXBattery.getGif(), xMax - random.nextInt(250), yMax - random.nextInt(250), 300, 300, 5 + random.nextInt(10));
+        stage.addActor(animation);
+        animation.setZIndex(100);
 
-        Tween.to(nextAnim,
-                AnimationTween.X, 2f)
-                .target(xMax + random.nextInt(350))
-                .ease(TweenEquations.easeInCubic)
-                .repeatYoyo(Tween.INFINITY, 0f)
-                .start(manager);
-        Tween.to(nextAnim,
-                AnimationTween.Y, 2f)
-                .target(yMax + random.nextInt(350))
-        .ease(TweenEquations.easeInCubic)
-                .repeatYoyo(Tween.INFINITY, 0f)
-                .start(manager);
 
-        anims.add(nextAnim);
+        float size =150 + random.nextInt((int) stage.getWidth());
+
+        animation.setSize(size,size);
+        animation.setX(randomWidth());
+        animation.setY(randomHeight());
+
+        Tween.to(animation, ActorTween.SIZE, 2f).target(size * 3, size * 3)
+                .ease(TweenEquations.easeOutSine).start(tweenManager);
+
+        Tween.to(animation, ActorTween.XY, 1f).target(
+                randomWidth(),
+                randomHeight()
+        )
+                .ease(TweenEquations.easeOutSine).start(tweenManager);
+
+        Tween.to(animation, ActorTween.ALPHA, 2f)
+                .target(0f)
+                .ease(TweenEquations.easeOutCubic)
+                .setCallbackTriggers(TweenCallback.COMPLETE | TweenCallback.ANY)
+                .setCallback(new TweenCallback() {
+                    @Override
+                    public void onEvent(int type, BaseTween<?> source) {
+                        if (type == TweenCallback.COMPLETE) {
+                            stage.getActors().removeValue(animation, true);
+                        }
+                    }
+                }).start(tweenManager);
     }
 
-    public void updateAndRender(Batch batch) {
+    public void playRandomSoundAnimation(){
+        final SoundGif soundGif = FXBattery.getSoundGif();
+        final TweenableAnimation animation = new TweenableAnimation(soundGif.getAnim());
 
-        for (Iterator<TweenableAnimation> iter = anims.listIterator(); iter.hasNext(); ) {
-            TweenableAnimation next = iter.next();
-            if (next.getTicks() > next.getMaxTicks()) {
-                iter.remove();
-            }else{
-                next.render(batch);
-            }
-        }
+        stage.addActor(animation);
+        animation.setZIndex(100);
+
+        float size =250 + random.nextInt((int) stage.getWidth());
+
+        animation.setSize(size,size);
+        animation.setX(50);
+        animation.setY(0);
+
+
+        Tween.to(animation, ActorTween.ALPHA, soundGif.getAnim().getAnimationDuration())
+                .target(0f)
+                .ease(TweenEquations.easeOutCubic)
+                .setCallbackTriggers(TweenCallback.COMPLETE | TweenCallback.ANY)
+                .setCallback(new TweenCallback() {
+                                 @Override
+                                 public void onEvent(int type, BaseTween<?> source) {
+
+                                     if (type == TweenCallback.BEGIN) {
+                                         soundGif.getSound().play();
+                                     }
+
+                                     if (type == TweenCallback.COMPLETE) {
+                                         stage.getActors().removeValue(animation, true);
+                                     }
+                                 }
+                             }
+
+                    ).
+
+                start(tweenManager);
+
+                }
+
+
+    private float randomHeight(){
+        return stage.getHeight() - (random.nextInt((int) stage.getHeight())) - 250;
     }
+
+    private float randomWidth(){
+        return stage.getWidth() - (random.nextInt((int) stage.getWidth()));
+    }
+
+
 }
 

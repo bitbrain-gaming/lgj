@@ -10,7 +10,7 @@ public final class Assets {
 	public static String DIR_GIFS = "gifs/mute/";
 	public static String DIR_ANIMS = "gifs/special/";
 	public static String DIR_OVERLAYS = "overlays/";
-	public static String DIR_MUSIC = "overlays/";
+	public static String DIR_MUSIC = "music/";
 
 	public static String FNT_REGULAR = DIR_FONT + "regular.fnt";
 

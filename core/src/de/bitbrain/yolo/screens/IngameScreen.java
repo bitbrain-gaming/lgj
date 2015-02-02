@@ -1,8 +1,10 @@
 package de.bitbrain.yolo.screens;
 
 import java.io.IOException;
+import java.util.Random;
 
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -19,10 +21,7 @@ import de.bitbrain.yolo.core.GameObjectType;
 import de.bitbrain.yolo.core.GameState;
 import de.bitbrain.yolo.core.GameState.GameStateListener;
 import de.bitbrain.yolo.core.GameStateCallback;
-import de.bitbrain.yolo.graphics.AnimationRenderer;
-import de.bitbrain.yolo.graphics.FontAnimator;
-import de.bitbrain.yolo.graphics.ParallaxMap;
-import de.bitbrain.yolo.graphics.ParticleRenderer;
+import de.bitbrain.yolo.graphics.*;
 import de.bitbrain.yolo.graphics.shader.ShadeArea;
 import de.bitbrain.yolo.graphics.shader.SimpleShaderManager;
 import de.bitbrain.yolo.net.YoloServer;
@@ -49,6 +48,8 @@ public class IngameScreen extends AbstractScreen implements ShadeArea {
 	private AnimationRenderer animationRenderer;
 	
 	private FontAnimator fontAnimator;
+
+	private Music music;
 	
 	private GameStateListener l = new GameStateListener() {
 		@Override
@@ -75,7 +76,7 @@ public class IngameScreen extends AbstractScreen implements ShadeArea {
 					0.7f + (float) Math.random() * 0.5f, 1.0f);
 
 			if (!object.equals(gameState.getPlayer().getShip())) {
-				animationRenderer.addRandomAnimation();
+				animationRenderer.playRandomAnimation();
 				FXBattery.getSound().play(1.0f,
 						(float) (0.6f + Math.random() * 0.5f), 1.0f);
 				fontAnimator.animate("KILL, BITCH!");
@@ -97,12 +98,19 @@ public class IngameScreen extends AbstractScreen implements ShadeArea {
 
 	@Override
 	protected void onShow() {
+
+		music = FXBattery.getMusic();
+		music.setLooping(true);
+		music.setPosition( new Random().nextInt(100));
+		music.setVolume(0.5f);
+		music.play();
+
 		shaderManager = new SimpleShaderManager();
 		particleRenderer = new ParticleRenderer();
-		animationRenderer = new AnimationRenderer(tweenManager, camera);
+		animationRenderer = new AnimationRenderer(tweenManager, stage);
 		gameState.setListener(l);
 		gameHandler = new GameHandler(gameState, camera, gameStateCallback,
-				tweenManager);
+				tweenManager, stage);
 		backgroundMap = new ParallaxMap(Assets.TEX_SPACE, camera, 100f);
 		backgroundMap.setColor(new Color(0.8f, 0.6f, 0.6f, 1.f));
 		backgroundMap.scale(1.2f);
@@ -123,6 +131,7 @@ public class IngameScreen extends AbstractScreen implements ShadeArea {
 					game.setScreen(new MenuScreen(game));
 					return true;
 				}
+
 				return super.keyDown(event, keycode);
 			}
 		});
@@ -149,6 +158,9 @@ public class IngameScreen extends AbstractScreen implements ShadeArea {
 
 	@Override
 	public void dispose() {
+		if(music.isPlaying()){
+			music.stop();
+		}
 		gameStateCallback.dispose();
 	}
 
@@ -160,6 +172,5 @@ public class IngameScreen extends AbstractScreen implements ShadeArea {
 		fog1.draw(batch);
 		particleRenderer.updateAndRender(delta, batch);
 		gameHandler.updateAndRender(delta, batch);
-		animationRenderer.updateAndRender(batch);
 	}
 }

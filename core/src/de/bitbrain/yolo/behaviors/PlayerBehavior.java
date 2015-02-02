@@ -40,6 +40,10 @@ public class PlayerBehavior implements Behavior {
 	@Override
 	public void update(GameObject target, float delta) {
 		shootTimer.update(delta);
+
+		if (Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && Gdx.input.isKeyPressed(Keys.W)) {
+			target.getAcceleration().y -= ACCELERATION_FACTOR * 1.5f;
+		}
 		if (Gdx.input.isKeyPressed(Keys.W)) {
 			target.getAcceleration().y -= ACCELERATION_FACTOR;
 		} else if (Gdx.input.isKeyPressed(Keys.S)) {

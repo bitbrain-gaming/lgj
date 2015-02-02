@@ -13,6 +13,12 @@ public class ActorTween implements TweenAccessor<Actor> {
 
 	public static final int SCALE = 3;
 
+	public static final int XY = 4;
+
+	public static final int SIZE = 5;
+
+	public static final int ROTATION = 6;
+
 	@Override
 	public int getValues(Actor target, int tweenType, float[] returnValues) {
 		switch (tweenType) {
@@ -26,6 +32,22 @@ public class ActorTween implements TweenAccessor<Actor> {
 			returnValues[0] = target.getScaleX();
 			returnValues[1] = target.getScaleY();
 			return 1;
+
+			case XY:
+				returnValues[0] = target.getX();
+				returnValues[1] = target.getY();
+				return 1;
+
+			case SIZE:
+				returnValues[0] = target.getWidth();
+				returnValues[1] = target.getHeight();
+				return 1;
+
+			case ROTATION:
+				returnValues[0] = target.getRotation();
+				return 1;
+
+
 		default:
 			return 0;
 		}
@@ -42,6 +64,9 @@ public class ActorTween implements TweenAccessor<Actor> {
 		case POPUP:
 			target.setPosition(target.getX(), newValues[0]);
 			break;
+			case ROTATION:
+				target.setRotation(newValues[0]);
+				break;
 		case SCALE:
 			if (target instanceof Label) {
 				((Label) target).setFontScale(newValues[0]);
@@ -50,6 +75,18 @@ public class ActorTween implements TweenAccessor<Actor> {
 			target.setScaleY(newValues[1]);
 
 			break;
+
+			case XY:
+				target.setX(newValues[0]);
+				target.setY(newValues[1]);
+
+				break;
+
+			case SIZE:
+				target.setWidth(newValues[0]);
+				target.setHeight(newValues[1]);
+
+				break;
 		}
 	}
 

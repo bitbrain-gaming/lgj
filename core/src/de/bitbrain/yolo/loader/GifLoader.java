@@ -722,6 +722,8 @@ public class GifLoader {
             }
         }
         float frameDuration = (float)getDelay(0);
+        if(frameDuration==0)frameDuration = 93;
+
         frameDuration /= 1000; // convert milliseconds into seconds
         Animation result = new Animation(frameDuration, texReg, playType);
 
